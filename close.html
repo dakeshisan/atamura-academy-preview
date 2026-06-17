@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Звонок · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         <p class="dialogue-callid">реальный звонок из практики</p>
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">Менеджер (ATAMURA):</span> Мы ранее говорили по Керуену. Когда планируете покупку?</p><p class="dialogue-line"><span class="who">Клиент:</span> Пока рассматриваем, не можем определиться, я ещё приболел.</p><p class="dialogue-line"><span class="who">Менеджер (ATAMURA):</span> Давайте в пятницу позвоню. И на выходные, если получится, запишу.</p><p class="dialogue-line"><span class="who">Клиент:</span> Ну… не знаю, посмотрим.</p><p class="dialogue-line"><span class="who">Менеджер (ATAMURA):</span> Тогда на пятницу запишу. Ждём в пятницу либо в субботу.</p>
         </div>
@@ -95,78 +94,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Шаг 7 · Закрытие на показ: два времени + фиксация</h2>
-    <p class="practice-focus">Два конкретных времени превращают вопрос из «ехать или нет» в «когда ехать» — на это легко ответить, и любой ответ уже согласие на показ. Открытое «когда удобно?» клиент откладывает и забывает. Проговор вслух всех 4 элементов с явным «записали?» «впечатывает» встречу: показ считается назначенным только после живого «да, записал», а не после самого вопроса. Анонс звонка накануне добавляет страховку и звучит как забота, а не контроль.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«Чтобы вы посмотрели это вживую — вам удобнее завтра в первой половине дня или ближе к вечеру?» (после выбора: «В 13:00 или в 17:00?»). И сразу фиксация вслух: «Записываю: завтра, 17:00, офис продаж нашего ЖК — вас встретит наш менеджер. Я наберу накануне, подтвержу и пришлю адрес. Запишите и вы к себе — записали?»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/close/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/close/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJyrVipOzi9IVbJSSs7JL05V0lEqTi1UsjLQUcosSc0tVrKKrlYqzEyByccXmgCV5BeUACUMdIx1DHWMYmt10JSYwpWAFBhgU2JM2BRDuBKQGcbYlJhjKomtBQAqAT6X.ajKuZQ.Qev5fCnV8HEI_FK3azU8LZUlDYI">
+      
+        
+        <fieldset>
+          <legend>Клиент отклонил оба предложенных времени. Что делать?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Уйти в «перезвоню как-нибудь, когда определитесь»</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Назвать следующее конкретное время (послезавтра → ближайшая суббота в 11 или 14)</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Сбросить адрес в WhatsApp и ждать</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Сказать «жаль, что не получилось» и закончить</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Когда показ считается реально назначенным?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Когда адрес отправлен в WhatsApp</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Сразу после того, как менеджер сам вписал клиента в график</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Когда клиент вслух сказал «да, записал» после проговора дня, времени и адреса</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Когда клиент промолчал в ответ на предложенное время</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>На какой срок правильно звать клиента на показ?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Через недельку-другую, чтобы человек точно успел всё обдумать</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> В любой день — срок значения не имеет</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Через месяц, ближе к зарплате</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Близко — на 1-2 дня, не «через недельку»</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему нельзя закрывать открытым вопросом «когда вам удобно?»</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Потому что это звучит слишком напористо</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Потому что выбор перекладывается на клиента, и он отвечает «подумаю и напишу» — то есть не приедет</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Потому что так принято только в холодных звонках</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Потому что клиент обидится на такой вопрос</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Когда отправлять адрес и точку на карте в WhatsApp?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Вместо устного закрытия — просто скинуть и ждать выбора дня</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Сразу в начале разговора, чтобы клиент видел, куда ехать</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> До разговора, чтобы сэкономить время</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Только ПОСЛЕ фиксации встречи вслух</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 17 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Шаг 6 · Возражения: 5 шагов без спора</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="objections.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Скрипт-карта: собираем весь звонок в один маршрут</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

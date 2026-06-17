@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Вхожу в тонус · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -83,78 +81,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Настрой: с каким состоянием берёшь трубку</h2>
-    <p class="practice-focus">Это не «настроиться на позитив», а собрать состояние руками до первого слова. «Чистый лист» — предыдущий отказ остаётся за дверью, этот человек в нём не виноват. «Сделка не нужнее, чем ему квартира» снимает заискивание: когда тебе спокойно, клиент тянется сам. Голос звучит ровно не потому, что ты «прирождённый позитивщик», а потому что внутри ты уже всё выстроил. В этом разница между «настрой» и «настроение».</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>Ритуал входа в тон (про себя, за минуту до звонка): «Мы строим хорошие дома. Я помогаю человеку решить большую задачу. Мне эта сделка не нужнее, чем ему квартира — я спокоен. Моё дело — спокойно довести до встречи. Чистый лист.» И только потом набираешь.</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/core_state/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/core_state/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx1zbEKgCAUheF3OfMdNIvAV4mQqDs4hJlu4bt3aYiinM_H-Q-kOWwMizns7FKeMoOQOMIqgs-8JtjhQPTLC7nYiwtbllVTQ4bUWOjP6YczImvO3E6JEltx7cNdjxXXfbtjOQHZyksJ.ajKuZQ.X8v7MBFugZ7N1f_d9daaUkqhNA8">
+      
+        
+        <fieldset>
+          <legend>Как в Академии относятся к тяжёлому дню и серии отказов?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Надо рассказать о них клиенту, честность подкупает</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Это нормально, но каждый новый разговор начинается с чистого листа — прошлые отказы не переносим на нового клиента</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Значит, профессия не подходит, пора уходить</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Это провал смены — лучше уйти домой</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Пятый отказ за утро, ты вымотан, и пора набирать нового клиента. Что сделать перед звонком?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Набрать сразу как есть — настроение это погода, со следующим повезёт, тон поймаешь сам</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Сказать клиенту, что у тебя тяжёлый день, и попросить отнестись с пониманием</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Голосом изобразить максимальную бодрость и восторг, чтобы клиент почувствовал позитив</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Собрать тонус перед набором: «чистый лист, этот человек не виноват в предыдущих, мне сделка не нужнее, чем ему квартира — я спокоен», и только потом набрать</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Менеджер решает «накачать» себя наигранной бодростью перед звонками. Чем это плохо?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Ничем, чем бодрее голос — тем лучше продажи</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Наигранную бодрость клиент считывает мгновенно, и она утомляет сильнее самой усталости — нужна спокойная уверенность, а не накачка</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Плохо только тем, что устаёт горло</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Тем, что бодрость надо включать не до, а во время звонка</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Зачем в ритуале входа держать мысль «чистый лист»?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Чтобы не вспоминать имя клиента из прошлого звонка</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Чтобы можно было забыть про задачу довести до встречи</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Чтобы предыдущий отказ остался за дверью — новый человек в нём не виноват, и разговор начинается заново</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Чтобы каждый раз менять текст приветствия</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Что важнее всего недооценивают новички, по мнению Академии?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Знание всех планировок наизусть в первый день</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Громкость голоса в трубке</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Скорость набора номера</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Своё состояние — в каком тонусе берёшь трубку: оно влияет на результат сильнее, чем скрипт и знание планировок</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 3 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Вера в продукт: два страха клиента</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="core_company.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Профессия: ты помощник, а не впариватель</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

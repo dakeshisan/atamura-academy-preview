@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Держу рамку · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -83,78 +81,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Рамка телемаркетолога: продаём показ, а не квартиру</h2>
-    <p class="practice-focus">Так я честно держу границу роли: показ, подбор вариантов и точный расчёт — работа менеджера отдела продаж, не моя. Я довожу клиента до двери и не обещаю того, что буду делать не я. Обещать чужую работу — значит подставить и себя, и менеджера, и обмануть ожидания клиента на встрече.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>На встрече вас встретит наш менеджер отдела продаж — он подберёт варианты под вашу задачу и сделает точный расчёт.</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/tm_frame/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/tm_frame/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJxtzEEKgCAQRuG7_OtZ6AQFXiUiogxciJnuors3FIiQ6_fxLqQ1HBYG2c_7uXgLQrIRRhFctj7BjBei2yoyx0FUOLI0TUwdqemmv9JFMSlRuqm6okSI46bi6vW6puqrF39quh-y30XU.ajKuZQ.2brOHuVmIQWq2H309NWlhQbVKWI">
+      
+        
+        <fieldset>
+          <legend>Не удалось дозвониться по свежей заявке. Что делать?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Звонить подряд без перерыва, пока человек не возьмёт трубку</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Отправить короткое сообщение без продажи и идти дальше по лестнице дозвона</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Сразу поставить отказ: раз не берёт, значит не целевой</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Закрыть карточку — клиент сам перезвонит, если интересно</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Какая настоящая цель телемаркетолога по итогу звонка?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Чтобы клиент пообещал перезвонить и подумать</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Состоявшийся показ — человек реально дошёл до встречи</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Получить от клиента точный бюджет на квартиру</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Назначенный показ — клиент устно согласился на дату</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент просит назвать точную цену на трёшку прямо по телефону. Как остаться в своей роли?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Скинуть прайс в мессенджер: пусть посмотрит сам</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Пообещать приехать к клиенту с готовым расчётом</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Назвать примерную цифру по памяти, чтобы не терять клиента</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Сказать, что точный расчёт сделает менеджер на встрече, и подобрать удобное время</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Кто ведёт сам показ и делает точный расчёт по квартире?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Руководитель отдела по телефону до встречи</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Клиент сам по присланному каталогу планировок</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Менеджер отдела продаж на встрече</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Телемаркетолог, раз он первым поговорил с клиентом</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему свежую заявку нужно брать первой и максимально быстро?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Чем раньше звонок, тем короче будет разговор</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Чтобы коллеги не успели забрать выгодного клиента</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Пока человек горячий, шанс довести до встречи выше — скорость и есть деньги</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Так требует регламент отчётности перед руководителем</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 9 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Возражения: 5 шагов без спора</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="core_objections.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Голос в трубке: звучать уверенно</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

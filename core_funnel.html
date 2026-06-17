@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Веду на встречу · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -83,78 +81,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Путь клиента: цель звонка — встреча, не продажа</h2>
-    <p class="practice-focus">Ты сам говоришь, чем закончится разговор — встречей, а не «скину и подумаете». Не пересказываешь по телефону то, что человек должен увидеть глазами, а честно объясняешь: вживую он оценит лучше. «Полчаса без обязательств» снимает страх, а два времени на выбор превращают «как-нибудь подъеду» в назначенный показ. Точные цифры не диктуешь — их считает менеджер на встрече.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«По телефону всего не передать — двор, планировки, само ощущение от дома. Давайте я подберу два-три варианта под вашу задачу, а на встрече вы всё увидите вживую: это полчаса без обязательств. Вам удобнее в первой половине дня или ближе к вечеру?»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/core_funnel/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/core_funnel/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx9zcEOQDAQhOF3mfMeqoSkryLiwEqaoKqcxLtbDg0JzvNl_g2hcRPDoHEz1906jtyDENjDKIJdeAgw5QZv26eqfSbQTYvMmhJKSVU7vcI8QkFC9RcsIhT095je0kpg8gV1hBc709V-AO4XTXU.ajKuZQ.OdGvi-F6yqyev-xazthFetRpu00">
+      
+        
+        <fieldset>
+          <legend>Почему одна и та же информация работает по-разному до показа и на показе?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> До показа клиент не верит цене, а на месте верит</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> На показе менеджер говорит убедительнее, чем по телефону</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> На объекте человек видит двор, планировки и чувствует дом вживую — и влюбляется так, как никогда по фото</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> До показа клиент невнимателен, а на показе наконец слушает</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Чем «два времени на выбор» в конце звонка лучше, чем «приезжайте, когда удобно»?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Два времени нужны только чтобы занять клиента подольше</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Ничем, это одно и то же, просто разными словами</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Выбор из двух времён превращает размытое «как-нибудь подъеду» в конкретный назначенный показ</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> «Когда удобно» звучит вежливее и поэтому работает лучше</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Менеджер весь звонок пытается «продать квартиру в трубку». Чем это вредит?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Вредит только тем, что занимает много времени</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Он сам режет себе путь: продать по телефону почти невозможно, а до точки максимального доверия — показа — клиента так и не довёл</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Вредит, потому что по телефону нельзя называть преимущества дома</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Ничем, если получится продать сразу — это лучший результат</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Менеджер записал в отчёт «назначил показ», но клиент в итоге не приехал. Это считается результатом?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Нет: считается именно состоявшаяся встреча — человек пришёл; назначенная, но несостоявшаяся не считается</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Да, главное — назначить встречу, явка уже не так важна</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Не считается только если клиент вообще не брал трубку</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Да, если клиент подтвердил время по телефону</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Где находится точка максимального доверия на пути клиента?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> В первом телефонном разговоре, когда менеджер всё подробно объяснил</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Когда клиент впервые оставил заявку на сайте</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Когда человек сам приехал на объект, встал перед домом и увидел всё своими глазами</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> В момент отправки планировок и цены в мессенджер</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 7 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Доверие: за грубостью — живой клиент</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="core_trust.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Возражения: 5 шагов без спора</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Звонок · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         <p class="dialogue-callid">реальный звонок из практики</p>
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">менеджер:</span> Звоню по Ауре. Можете приехать на консультацию?</p><p class="dialogue-line"><span class="who">клиент:</span> Я не в Алматы, покупает сын. Район у вас далековатый.</p><p class="dialogue-line"><span class="who">менеджер:</span> А сегодня сын сможет подъехать?</p><p class="dialogue-line"><span class="who">клиент:</span> Он не отвечает, не могу сказать.</p><p class="dialogue-line"><span class="who">менеджер:</span> А завтра? В следующий день? Свяжитесь с сыном, узнайте.</p><p class="dialogue-line"><span class="who">клиент:</span> Точно не могу сказать. Возможно, в ближайшее время.</p>
         </div>
@@ -95,78 +94,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Шаг 4 · Квалификация: оплата, сроки, кто решает</h2>
-    <p class="practice-focus">Одной заботливой фразой снимаешь сразу три кита квалификации — цель, способ оплаты и «кто решает». Вопрос «сами или вместе с близкими» звучит мягко и нормально для рынка, но именно он вскрывает, есть ли решающий человек вне линии. Узнал это в начале — не будешь впустую дожимать встречу через того, кто не покупает.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«Чтобы подобрать точно под вас — пара коротких вопросов: квартиру для себя или как вложение, оплата ипотека или рассрочка, и решение принимаете сами или вместе с кем-то из близких?»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/tm_stage_qualify/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/tm_stage_qualify/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx9zr0KgzAAReF3ufMd8tM65FUkBGmjBCoakg5F8u6mi7Sg2T8OZ0N6LKuHQZ5dysPkXXwPrzB-QCQfYQQRsp8TTL8hhucJdbGrellzNZKCmsoWXuv7oTUlFUVTy7-2om7q26Frt9bbWv2cfNvSFlt2gYtaJQ.ajKuZQ.rToFPNk4WcRrSQd48qcxCzPZyRk">
+      
+        
+        <fieldset>
+          <legend>В квалификации заходит речь о деньгах. Может ли менеджер назвать клиенту точную ставку, цену или условия рассрочки?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Нет — цифры из головы не называем; точный расчёт и условия даёт отдел продаж на встрече, а суммы (например, размер взноса) проговаривает сам клиент</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Да, надо сразу назвать точную ставку, клиент этого ждёт</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Можно назвать цену, но только ниже реальной</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Да, можно назвать любую цифру, потом поправим</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>На линии мама: «Покупает сын, его сейчас нет в городе, он не отвечает». Как правильно действовать?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Сказать «успейте, пока есть квартиры», чтобы мама поторопила сына</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Перебирать с мамой даты показа: «сегодня? завтра? в следующий день?», лишь бы зафиксировать слот</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Сказать маме, что без сына говорить не о чем, и завершить звонок</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Взять у мамы удобное время и прямой контакт сына (того, кто решает) и работать уже с ним</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Что в первую очередь должна выяснить квалификация перед презентацией?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Какой у клиента любимый цвет стен</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Цель покупки, кто принимает решение, как платит и бюджет, срок, что уже смотрел — и презентовать только тем, кто прошёл этот фильтр</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Только номер телефона клиента</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Сразу дату показа, остальное не важно</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Зачем отдельно спрашивать «решение принимаете сами или вместе с близкими»?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Это формальность для галочки</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Чтобы поговорить о семье и расположить клиента</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Чтобы узнать, женат ли клиент</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Чтобы понять, есть ли решающий человек вне линии — если звонит родитель, родственник или посредник, это надо вскрыть сразу</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Как правильно спросить клиента про бюджет?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Назвать свою цену и ждать реакции</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> В лоб: «Сколько у вас денег?»</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Никак — про деньги спрашивать нельзя</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Через заботу: «чтобы не грузить лишним и не тратить ваше время, сориентируйте примерно по бюджету — подберу под вас»</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 14 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Шаг 3 · Выявление потребности: пойми задачу клиента</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="needs.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Шаг 5 · Презентация встречи: продаём показ, не квартиру</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

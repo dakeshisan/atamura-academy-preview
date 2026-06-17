@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Я помощник · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -83,78 +81,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Профессия: ты помощник, а не впариватель</h2>
-    <p class="practice-focus">Этой фразой ты сразу снимаешь главный страх — «сейчас будут разводить». Ты прямо говоришь: помогаю, а решает он сам. Это спокойная уверенность, а не нажим — клиент расслабляется и продолжает. Никаких цен, ставок и обещаний здесь нет: это про настрой.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«Я не уговариваю — я помогу вам спокойно разобраться и выбрать то, что подойдёт именно вашей семье. Решение всегда за вами, я просто рядом, чтобы было проще.»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/core_profession/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/core_profession/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx9zE0KgzAQBtC7fOtZ5IdSyFUkuLAjZGEncdxJ7m7ahVik2T_eDp0kMwImWXnMq8ysmuQNgnJBMIS08aIIw46SXnc5Ftuw5K0RQ54c2VjpL_Yn_lDTx-6CbcOuh58_c-M9_Djx9yUfa6wHPHRX8Q.ajKuZQ.IX9TGzQF3q4jsIgEQqIDdXZxmlU">
+      
+        
+        <fieldset>
+          <legend>Клиент осторожно: «Вы только мне не впаривайте, я просто узнать хочу». Как ответить, чтобы он расслабился?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> «Я не уговариваю — помогу спокойно разобраться и выбрать то, что подойдёт вашей семье. Решение всегда за вами»</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> «Понимаю, но поверьте, это правда выгодно, упустите — потом пожалеете»</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> «Хорошо, тогда я просто скину всё на WhatsApp, сами посмотрите и решите»</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> «Да что вы, у нас лучшее предложение, берите пока есть»</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Как в Академии описывают суть профессии продавца квартир?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Рассказать всё про дом и сразу взять предоплату</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Помочь семье спокойно разобраться и выбрать в самой крупной покупке её жизни; решение всегда за клиентом</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Уговорить человека купить любой ценой — это и есть мастерство продаж</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Быстро отправить клиенту прайс и ждать, пока он сам решит</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему давление и «впаривание» в недвижимости невыгодны самому менеджеру?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Потому что клиенты не любят, когда говорят громко</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Потому что давление даёт одну сделку, но рвёт отношения: продавленный человек расскажет родным и знакомым — закрытые двери на годы</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Потому что за давление штрафует руководитель, а так — пожалуйста</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Потому что давить просто тяжело физически</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Можно ли называть клиенту цену, ставку или гарантию, когда объясняешь, что ты «помощник, а не впариватель»?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Можно, но только гарантию, а цену нельзя</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Нет — цены, ставки, скидки и гарантии как факт не называются; расчёт и детали на встрече, формулировки сверяет руководитель</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Можно называть, если клиент очень просит</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Да, чтобы доказать честность, лучше сразу назвать цену и дать гарантию</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент: «А вы мне точно поможете выбрать, а не просто продать что подороже?» Как ответить в духе профессии?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> «Конечно помогу — но советую брать вариант подороже, он точно лучше»</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> «Моя работа — честно помочь вам разобраться и выбрать под вашу семью; что брать, решаете вы»</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> «Я продавец, моя задача — продать, но вы не переживайте»</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> «Берите что советую и не сомневайтесь, я лучше знаю»</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 4 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Настрой: с каким состоянием берёшь трубку</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="core_state.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Сначала спроси, потом рассказывай про дом</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Звонок · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         <p class="dialogue-callid">реальный звонок из практики</p>
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">Менеджер:</span> Звоню по заявке на Керуен, по трёхкомнатной.</p><p class="dialogue-line"><span class="who">Клиент:</span> Сейчас не актуально. А сколько трёшка стоила? А адрес какой? А однокомнатные есть?</p><p class="dialogue-line"><span class="who">Менеджер:</span> 77 квадратов, [цена — у РОП]. Адрес [— у РОП]. Однокомнатных три осталось…</p><p class="dialogue-line"><span class="who">Клиент:</span> Надо график посмотреть.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Тогда в пятницу перезвоню.</p>
         </div>
@@ -95,78 +94,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Шаг 2 · Программирование: задай порядок разговора</h2>
-    <p class="practice-focus">Это эталонная рамка из урока-источника. Ты объявил порядок разговора и сразу взял маленькое «да» («хорошо?») — теперь ведёшь ты, а не клиент. «Чтобы лучше понять вашу задачу» — забота, а не допрос; «а дальше договоримся о следующем шаге» — мягкий якорь на встречу, заброшенный заранее, поэтому клиент с первых секунд понимает, куда вы идёте, и не утягивает разговор в сторону. Конкретное время на показ предлагаешь не здесь, а на этапе закрытия. На исходящем/холодном — перед рамкой обязательно сначала проверь повод: «звоню по вашей заявке, вы интересовались квартирой?».</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>Давайте поступим так: я задам пару коротких вопросов, чтобы лучше понять вашу задачу, подберу, что вам стоит посмотреть, а дальше договоримся о следующем шаге. Хорошо?</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/program/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/program/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJxtzr8KgCAYBPB3ufkbUqPBVwmJKAkH8V9b-O5ZgwU634-7u5A25zUkfHRHXC0ISQfIgWBObRPkfCGY_RNLmApy_iwRo4E4CZWpQWNFLyHWQ6IiXppYv4n_5sQz2EOs_aTyDQSfQ98.ajKuZQ.2S8J_lJJak7VHa5VtdoFjOfCGeE">
+      
+        
+        <fieldset>
+          <legend>Почему важно, чтобы порядок разговора задавал именно ты, а не клиент?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Если рамку не поставить, за руль садится клиент и уводит разговор к «я подумаю»</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Так быстрее закончить звонок</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Клиенты не любят, когда им задают вопросы</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Чтобы не пришлось выявлять потребность</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент посреди рамки начинает закидывать вопросами («а сколько стоит? а где это?»). Как правильно?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Бросить рамку и подробно отвечать на каждый вопрос</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Назвать примерную цену, лишь бы он замолчал</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Мягко вернуть в рамку: «хороший вопрос, вернёмся к нему — мы же договорились: пара вопросов, и я подберу вам вариант»</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Сказать «давайте без вопросов»</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Зачем в рамку сразу добавлять фразу «а дальше договоримся о следующем шаге»?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Чтобы клиент заранее знал, куда идёт разговор, и договорённость о встрече в конце не была для него неожиданностью</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Чтобы сразу назвать дату и время показа</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Чтобы клиент понял, что разговор будет долгим</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Чтобы можно было не выявлять потребность</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему рамку разговора НЕ стоит заканчивать вопросом «вопросов нет?»</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Этим ты снова отдаёшь руль клиенту, вместо того чтобы вести разговор самому</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Так звучит неуверенно перед старшими коллегами</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Это слишком длинно</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Клиент может обидеться</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Что значит «запрограммировать разговор» на этом шаге?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Записать звонок на диктофон</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Самому объявить клиенту порядок: «задам пару вопросов, пойму задачу, подберу варианты, дальше договоримся о шаге» — и взять короткое «хорошо?»</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Заранее вбить данные клиента в CRM</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Зачитать клиенту весь скрипт целиком, ничего не пропуская</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 12 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Шаг 1 · Настрой и приветствие</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="greeting.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Шаг 3 · Выявление потребности: пойми задачу клиента</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

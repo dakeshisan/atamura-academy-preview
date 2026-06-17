@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Звонок · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         <p class="dialogue-callid">реальный звонок из практики</p>
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">менеджер:</span> Здравствуйте, [имя], ATAMURA. Вы оставляли заявку по ЖК Керуен, верно?</p><p class="dialogue-line"><span class="who">клиент:</span> Нет, это была не я. Я вам не звонила.</p><p class="dialogue-line"><span class="who">менеджер:</span> Керуен по Кульжинскому тракту, талгарский район, подходит по расположению?</p><p class="dialogue-line"><span class="who">клиент:</span> Мне Алматы… вообще мне Астана нужна. Извините.</p>
         </div>
@@ -95,78 +94,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Шаг 1 · Настрой и приветствие</h2>
-    <p class="practice-focus">Одна короткая конструкция закрывает всё, что клиент должен понять за 15 секунд: КТО (имя + ATAMŪRA, отдел продаж), ЗАЧЕМ (он сам оставлял заявку — не холодный спам), и сразу запускает первое микро-«да» (простое подтверждение). После имени — пауза, без «извините за беспокойство» и без презентации ЖК. А если в ответ «я не оставлял» — не спорим, а спокойно уточняем актуальность.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>Здравствуйте! Меня зовут [имя], компания ATAMŪRA, отдел продаж. Вы оставляли заявку по нашим жилым комплексам, всё верно?</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/greeting/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/greeting/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJxtzTsKwzAURNG9TD2FPjgBbSUIF_HDqEgsReqM9-6Xxgiseg5zd9T3lgUB60-kpe8KokpBMERq8qkIrx0lLR2Zi1O15aaboaOnjQfv6nkpq8bRDNXjUo6Whn6ofKe8qnFx6pSa_1c8Ts9XRhQ.ajKuZQ.djr5deQ1kIshGHw7ryhC5ZgNxxI">
+      
+        
+        <fieldset>
+          <legend>Что клиент должен понять из твоих первых фраз приветствия?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Полную стоимость квартиры и размер скидки</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Сколько лет компания на рынке и сколько домов сдала</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Что у него мало времени и решать надо сегодня</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Кто звонит, откуда (компания, отдел продаж) и зачем — он сам оставлял заявку</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Какая из ошибок старта прямо подставляет компанию и противоречит канону?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Сделать паузу после имени</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Спросить, актуален ли вопрос квартиры</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Назвать клиенту цену или ставку из головы</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Назвать своё имя и компанию</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Что нужно сделать ещё ДО набора номера, чтобы приветствие прошло уверенно?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Подготовить готовую вилку цен, чтобы сразу назвать</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> За минуту собрать заявку клиента (имя, какой ЖК, что писал), базу по продукту и держать маршрут разговора в голове</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Выучить наизусть весь прайс по всем девяти комплексам</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Ничего, всё решается по ходу</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему начало звонка лучше вести как короткий диалог с паузами, а не как сплошной монолог?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Чтобы клиент отзывался простым «да» и чувствовал, что говорят с ним, а не зачитывают текст</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Так принято, причины нет</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Чтобы успеть проговорить весь скрипт, пока клиент не перебил</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Чтобы клиент не успел задать ни одного вопроса</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему на старте звонка нельзя начинать с «извините за беспокойство»?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Клиент может обидеться на слово «беспокойство»</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Это звучит как заискивание и сразу ставит тебя в слабую позицию — клиент сам оставлял заявку, извиняться не за что</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Так длиннее по времени</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Это запрещено законом РК</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 11 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Голос в трубке: звучать уверенно</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="tm_prep_voice.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Шаг 2 · Программирование: задай порядок разговора</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

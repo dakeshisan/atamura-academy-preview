@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>5 шагов без спора · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">Клиент:</span> По двору и планировке вроде всё подходит. Но дороговато выходит, если честно.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Да где же тут дорого? У нас отличный дом, нормальная цена за такое качество.</p><p class="dialogue-line"><span class="who">Клиент:</span> Ну, у других-то дешевле видел.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Так у других и стройка не та. Хотите, прямо сейчас посчитаю вам скидку и рассрочку?</p><p class="dialogue-line"><span class="who">Клиент:</span> Да не надо пока считать… я подумаю, спасибо.</p>
         </div>
@@ -95,78 +94,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Возражения: 5 шагов без спора</h2>
-    <p class="practice-focus">Это все пять шагов в одной фразе: принять (соглашаюсь, что вопрос цены важен — не что «цена высокая») → уточнить, с чем сравнивает → локализовать (проверить, держит ли решение именно цена: «это единственное, что останавливает?») → аргументировать честно через «именно поэтому» (расчёт на встрече, цифры из головы не называю) → вернуть к шагу (два времени). Соглашаешься не с тезисом «дорого», а с правом клиента так думать — так не роняешь ценность. Никакого «но», никаких выдуманных скидок в трубке.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«Понимаю вас, вопрос цены здесь действительно один из главных. А с чем сравниваете — с другим комплексом или с той суммой, что закладывали? Скажите, если по платежу выйдем в комфортную для вас сумму — в остальном вариант подходит, это единственное, что останавливает? Точную цифру по телефону называть не возьмусь — её менеджер считает прямо на встрече под вашу планировку и этаж. Вам в будни вечером или в выходной удобнее?»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/core_objections/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/core_objections/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx9zjEOAiEQBdC7_PoXwERNuIrZbCJOgYnOInSbvbtUNBvpX_F21GSbIiLZV1d7vDS1bJ8KompBdERu-q6I9x0lP89yLZeObWudeAY6ynLwL5aBpdNAP8PXgQOFnm6G_cCuU2GY4dv5vBw_7pFXZQ.ajKuZQ.vgYejX-ZhZ6dPm3c-g-X356cZwA">
+      
+        
+        <fieldset>
+          <legend>Шаг «аргумент фактом» при возражении «дорого». Как сделать честно?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Назвать клиенту по телефону точную цену со скидкой, чтобы доказать выгоду</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Сказать, что у конкурентов дороже и хуже, поэтому у нас выгодно</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Через «именно поэтому» объяснить, что точный расчёт под его планировку и этаж менеджер сделает на встрече — цифры из головы не называть</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Пообещать, что цена точно не вырастет, лишь бы снять вопрос</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Какой первый шаг в работе с возражением «дорого»?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Перевести тему на качество дома, не отвечая про цену</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Сразу назвать скидку, чтобы снять вопрос цены</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Принять — согласиться, что вопрос цены здесь действительно важен</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Доказать, что цена на самом деле нормальная</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Чем заканчивается отработка возражения — какой пятый шаг?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Отправить клиенту прайс и планировки, чтобы он сам всё взвесил</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Закрыть сделку прямо в телефонном разговоре</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Вернуть к показу — предложить встречу, например двумя удобными временами на выбор</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Уговорить клиента согласиться, что он был неправ насчёт цены</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент: «Дороговато выходит, если честно». Как пройти возражение по пяти шагам?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> «Понимаю, вопрос цены важен. А с чем сравниваете? Если по платежу выйдем в комфортную сумму — в остальном подходит? Точную цифру менеджер посчитает на встрече под вашу планировку. Вам в будни вечером или в выходной?»</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> «Да где же дорого, у нас отличный дом и нормальная цена» — доказать, что не дорого</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> «Согласен, дороговато — но успейте, скоро поднимем цены, последние по этой стоимости»</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> «Давайте прямо сейчас посчитаю вам скидку и рассрочку, чтобы вышло дешевле»</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему спорить с возражением («да где же тут дорого») — проигрышная тактика?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Потому что спорить можно только после того, как назвал скидку</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Пока ты возражаешь в ответ, вы по разные стороны стола — в споре продажи нет, и клиент закрывается в «я подумаю»</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Потому что клиент всё равно не разбирается в ценах</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Потому что в споре нельзя называть преимущества дома</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 8 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Путь клиента: цель звонка — встреча, не продажа</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="core_funnel.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Рамка телемаркетолога: продаём показ, а не квартиру</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

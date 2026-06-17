@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Звонок · 100 XP · ~35 мин</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -111,9 +109,32 @@
   
     <article class="lesson-step type-dialogue">
       
+        <span class="lc-tag good-tag">Диалог-пример</span>
+        <h2>✅ Диалог-пример</h2>
+        
+        
+          <div class="dialogue-audio" role="group" aria-label="Озвучка диалога">
+            <span class="audio-play" aria-hidden="true">▶</span>
+            <div class="audio-meta">
+              <strong>Озвучка диалога</strong>
+              <span class="audio-lang"><button type="button" class="audio-lang-btn is-active" disabled>RU</button><button type="button" class="audio-lang-btn" disabled>KK</button></span>
+              <small>Появится после записи. Пока читайте текст ниже.</small>
+            </div>
+          </div>
+        
+        <div class="dialogue dialogue-pos">
+          <p class="dialogue-line"><span class="who">менеджер:</span> Под вашу задачу — чтобы ребёнку до школы близко и двор закрытый — у меня есть два варианта. Давайте на показе пройдём оба: покажу двор, вид из окна, и менеджер посчитает платёж по месяцам под вашу планировку.</p><p class="dialogue-line"><span class="who">клиент:</span> А цена примерно какая?</p><p class="dialogue-line"><span class="who">менеджер:</span> Ориентир по порядку дам сейчас, а точную сумму под выбранную планировку посчитаем на месте — это честнее, чем называть наугад. Когда удобнее подъехать — завтра в первой половине или ближе к вечеру?</p><p class="dialogue-line"><span class="who">клиент:</span> Давайте завтра днём.</p><p class="dialogue-line"><span class="who">менеджер:</span> Записываю предварительно. К приезду подготовят оба варианта и расчёт — вам останется выбрать.</p>
+        </div>
+        
+      
+    </article>
+  
+    <article class="lesson-step type-dialogue">
+      
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         <p class="dialogue-callid">реальный звонок из практики</p>
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">менеджер:</span> Евродвушка 45 квадратов, чистовая от 28,5 млн, скидка 10%.</p><p class="dialogue-line"><span class="who">клиент:</span> А взнос со скидкой сколько? И чистовая в итоге — посчитайте.</p><p class="dialogue-line"><span class="who">менеджер:</span> Это посчитать я вам не могу, только в отделе продаж — у нас первичная информация.</p><p class="dialogue-line"><span class="who">клиент:</span> А чистовая насколько дороже черновой?</p><p class="dialogue-line"><span class="who">менеджер:</span> Примерно 75 тысяч за квадрат — это тоже у отдела продаж посчитаете.</p>
         </div>
@@ -131,78 +152,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Дрилл: мини-презентация под задачу за 60 секунд</h2>
-    <p class="practice-focus">Тренер даёт «боль» клиента (семья со школьником / первая квартира / тесно с родителями). За 60 секунд вслух выдай мини-презентацию под задачу: свойство→выгода через «это значит, что…», картину утра, цифру в порядке «выгода→вилка→оговорка», закрытие на показ через 4 «груза». Запиши на диктофон.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>Чтобы вы понимали порядок — ориентировочно вот такой взнос со скидкой, примерно столько-то в месяц. Это вилка; точную сумму под вашу планировку менеджер посчитает прямо на показе. Всего по телефону не передать — двор и вид из окна честнее один раз увидеть вживую: приезжайте, к вашему приезду уже подготовят 2-3 варианта и расчёт по месяцам, вам останется только выбрать.</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Прозвучала выгода (а не свойство)? Была оговорка про точный расчёт на показе? Нагрузил встречу так, что не приехать жалко?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/pitch/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/pitch/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJxtzb0KgCAYheF7OfM3-FMN3kpIQwk5hIpu4r33ESRRze_DORV5DdHBIPqy7iBkl2AEwRd3ZJi5Ivnt7ksamYRYOGiSJEjZRi8ydKIYSNJfIh-EAYkvmTq5wN-R7kQw4SXbbDsBMFY-og.ajKuZQ.KlGxt3ZLw1i6m2_HFMRx1vDwb3c">
+      
+        
+        <fieldset>
+          <legend>Что значит «говорить выгодами через мостик это значит, что…»?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Сказать «у нас всё есть» и перейти к цене</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Перечислить характеристики: «двор закрытый, парковка подземная, лифт бесшумный»</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Связать характеристику с жизнью клиента: «двор закрытый — это значит, ребёнок гуляет, а вы видите его из окна»</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Назвать как можно больше технических параметров дома</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Как звучит правильный порядок подачи цифр в презентации?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Цифры не называть совсем — отправить всё в WhatsApp</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Сначала цена, потом уже выгоды — пусть сразу видит сумму</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Только точная сумма, без всяких вилок и оговорок</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Сначала выгода, потом примерная вилка, и сразу оговорка «точный расчёт на показе»</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Что мы на самом деле «продаём» клиенту по телефону на этапе презентации?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Полный каталог всех девяти комплексов сразу</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Саму квартиру — закрываем сделку прямо на звонке</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Точный расчёт платежа до копейки</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Желание приехать и увидеть объект вживую</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Зачем «нагружать» показ ценностью (2-3 варианта, расчёт по месяцам, сравнение ипотека/рассрочка, проход по дому)?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Чтобы фраза «всего по телефону не передать — приезжайте» звучала как забота, а не отговорка</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Чтобы клиент понял, что по телефону ему ничего не положено</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Чтобы можно было дольше держать клиента на телефоне</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Чтобы не пришлось называть вообще никаких цифр</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент просит посчитать взнос со скидкой и итог по чистовой. Как правильно?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Глухо ответить «это только в отделе продаж посчитают» и дать цену за квадрат</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Предупредить, что лот скоро уйдёт, поэтому надо приехать сегодня</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Назвать примерную вилку с оговоркой «точный расчёт сделает менеджер на показе» и позвать приехать</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Назвать точную итоговую сумму и ставку по памяти</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 15 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Шаг 4 · Квалификация: оплата, сроки, кто решает</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="tm_stage_qualify.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Шаг 6 · Возражения: 5 шагов без спора</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Звучу уверенно · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -83,78 +81,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Голос в трубке: звучать уверенно</h2>
-    <p class="practice-focus">Звучит увереннее и профессиональнее любой выдуманной цифры: ты не врёшь и не оправдываешься, а спокойно берёшь на себя обязательство вернуться с реальным расчётом. «Не знаю» роняет доверие, «уточню и вернусь» — поднимает: клиент слышит, что цифрами тут не разбрасываются наугад.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>Уточню и вернусь к вам с точным ответом, чтобы не сказать наугад.</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/tm_prep_voice/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/tm_prep_voice/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx9zr0KgCAUhuF7-eYz-EME3kqEQ53BQdSUlujeswahwPaHl_dAXkJkGBRv48bR7sEtDELmBCMIrrDPMNOB5Navs0lWGmKpQJEmQXI-qUPHRm-o_ujQqKhVSapPdaPyqeo-Va-BpzqfF20DUpk.ajKuZQ.WkzuPbX8R5hEHhjlIFDy32rdl0o">
+      
+        
+        <fieldset>
+          <legend>Почему голос в телефонном разговоре особенно важен?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Громкий голос автоматически звучит убедительнее</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Так разговор получается заметно короче</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Клиент тебя не видит — весь контакт несёт только звук</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> По голосу проще определить возраст и доход клиента</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Какой инструмент назван главным тренажёром голоса для телемаркетолога?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Метроном для контроля темпа</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Громкая связь во время звонка</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Диктофон — записать себя и проверить по чек-листу</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Сравнение с записями опытных коллег</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент задал вопрос, точного ответа ты сейчас не знаешь. Что сказать?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> «Уточню и вернусь к вам с точным ответом, чтобы не сказать наугад»</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Назвать любую правдоподобную цифру, чтобы не молчать</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> «Наверное, где-то так, но точно не скажу»</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> «Не знаю, это не ко мне»</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Ты задал клиенту вопрос. Что усиливает твоё звучание, хотя новички этого боятся?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Заполнить тишину словами «эээ» и «ну»</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Сразу подсказать вероятный ответ, чтобы клиент не молчал</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Замолчать и держать паузу — дать клиенту ответить самому</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Повторить вопрос громче и быстрее</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>С каким темпом речи стоит говорить по телефону?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Темп не важен, если слова подобраны правильно</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Как можно быстрее, чтобы уложить больше за звонок</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Чуть медленнее, чем кажется тебе самому — для клиента это в самый раз</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Очень медленно, растягивая каждое слово</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 10 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Рамка телемаркетолога: продаём показ, а не квартиру</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="tm_frame.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Шаг 1 · Настрой и приветствие</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Собрал маршрут · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -75,78 +73,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Скрипт-карта: собираем весь звонок в один маршрут</h2>
-    <p class="practice-focus">Проговори ключевую фразу вслух три раза.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd></dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/tm_script/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/tm_script/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx1zTsOgCAQRdG9vHoKBD8JWzGEQikojCB0hr07NIQC-5N7X6TjDg4a-bLpeHzIICQXoQXBZ3cl6P1F9GdvbFyZ3Yz1LmgiRdIUGjDVmKIKf9jWGBOuiTFbupqsvTGbu1rd8tSUDw74SRY.ajKuZQ.3BZ8Y_ior-o4JBtdsC-BtmInwqQ">
+      
+        
+        <fieldset>
+          <legend>Какое главное задание по скрипт-карте?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Выучить все фразы наизусть и сдать руководителю</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Прогнать карту целиком вслух на диктофон одним заходом</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Разобрать карту по кускам и тренировать этапы по отдельности</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Переписать карту своими словами для удобства</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Возражение прилетело раньше своего этапа в маршруте. Как действовать?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Закончить звонок — клиент пока не готов</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Сразу перескочить к этапу закрытия</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Сказать «об этом позже» и продолжить по порядку</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Снять его по 5 шагам и вернуться на свою точку в маршруте</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему открытое «когда вам удобно?» попало в словарь запретов скрипт-карты?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Оно звучит грубо и может обидеть клиента</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Оно отдаёт инициативу клиенту, и он откладывает — вместо него дают два конкретных времени на выбор</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Оно запрещено законом и подставляет компанию</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Оно слишком длинное и тратит время звонка</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему цены и ставки нельзя называть прямо в звонке по скрипт-карте?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Названная цена удлиняет звонок</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Конкуренты могут подслушать разговор</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Это поля «[уточнить у РОП]» — точный расчёт даёт менеджер на показе</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Клиент всё равно их забудет к встрече</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Какую из этих фраз словарь запретов велит НЕ говорить?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> «Меня зовут [имя], компания ATAMŪRA»</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Открытое «когда вам удобно?»</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> «Подберём удобное для вас время показа»</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> «Вы оставляли заявку по этому ЖК»</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 18 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Шаг 7 · Закрытие на показ: два времени + фиксация</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="close.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Работа с CRM: дисциплина, которая не теряет клиента</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

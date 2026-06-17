@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Снимаю 2 страха · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">Клиент:</span> Нравится у вас, но честно — боюсь не потяну. Первый взнос, платёж каждый месяц… а вдруг с работой что-то.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Не переживайте, у нас надёжный застройщик, мы лучшие на рынке, всё достроим. Дом отличный, документы в порядке.</p><p class="dialogue-line"><span class="who">Клиент:</span> Да я не про дом… я про деньги спрашиваю.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Так за деньги вообще не переживайте, у нас всё надёжно. Берите, пока цена не выросла.</p><p class="dialogue-line"><span class="who">Клиент:</span> Ну… я подумаю, спасибо.</p>
         </div>
@@ -95,78 +94,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Вера в продукт: два страха клиента</h2>
-    <p class="practice-focus">Сначала называешь страх «не потяну» нормальным — человек выдыхает. Потом снимаешь денежный страх (первый по порядку) и только затем касаешься дома — это правильный порядок. И ни одной цифры из головы: точный платёж уводишь на встречу, а вместо «мы надёжные» даёшь видимую стройку. Доверие растёт само, хотя ты не сказал «верьте нам».</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«Понимаю вас — это самый частый и самый нормальный вопрос, его задаёт почти каждая семья. Смотрите: вы увидите реальные цифры заранее — и первый взнос, и платёж по месяцам под вашу ситуацию, ещё до сделки, без сюрпризов. Точный расчёт под вас менеджер подготовит на встрече. А про сам дом — у нас стройку видно: план против факта, вы сами всё смотрите, не на слово.»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/core_company/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/core_company/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx9zTsOgCAURNG9TP0KPsaCrRhDDFJQKCA2hrh3iQUx_uo5mZuRjA8WCsYvVhs_hWHeQEg2QjGCW-2UoLqM6MYb01EU6cNadk6MJIl-p3cpqxRFcpKfsqnydD-f7aUuimSfkj_r_X4AIvlQCQ.ajKuZQ._pTwAGT9ML-5KUAJlEzJS2Dk3Mo">
+      
+        
+        <fieldset>
+          <legend>Почему по деньгам клиента успокаивают раньше, чем по надёжности стройки?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Пока человек боится за деньги («не потяну»), слова про надёжность стройки он просто не слышит — сначала снимаем сильный страх</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Потому что про стройку нам говорить запрещено</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Потому что про деньги можно соврать, а про стройку нельзя</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Потому что деньги клиента нас вообще не касаются</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент сомневается в надёжности. Какой ответ — рабочий, а какой «белый шум»?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Показать причину, которую можно проверить (например, видимую стройку: план против факта), вместо общих слов «мы надёжные»</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> «Мы лучшие и самые надёжные на рынке» — это и есть лучший аргумент</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Просто повторить «поверьте нам» несколько раз поувереннее</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Сказать, что у конкурентов точно обманут, а у нас нет</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент выдохнул по деньгам и спрашивает про сам дом: «А достроите-то?» Чем ответить?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> «Конечно достроим, гарантирую на сто процентов, и точно в срок»</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> «Об этом не думайте, лучше скорее вносите взнос»</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> «У нас стройку видно: план против факта, вы сами всё смотрите, не на слово»</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> «Все застройщики достраивают, это не вопрос вообще»</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент называет страх «не потяну». Первое движение менеджера?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Сказать, что это самый частый и нормальный вопрос — назвать страх нормальным, чтобы человек выдохнул</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Сказать, что бояться нечего, раз он позвонил — значит, потянет</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Предложить максимальную скидку, чтобы страх про деньги исчез</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Сразу перейти к рассказу про материалы и планировки дома</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент: «Боюсь не потяну — взнос и платёж пугают. И вдруг ещё не достроите». С чего начать?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Сразу заверить «мы самые надёжные, всё точно» — одной фразой и про дом, и про деньги</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Сначала спокойно снять денежный страх (клиент заранее увидит реальные цифры под свою ситуацию, точный расчёт — на встрече), и только потом про дом</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Сначала доказать, что дом точно достроят, а про деньги сказать в конце</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Назвать по телефону точный платёж и скидку, чтобы человек убедился, что потянет</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 2 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>О компании: наследие, которое доказываем</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="core_about.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Настрой: с каким состоянием берёшь трубку</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

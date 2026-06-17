@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Спрашиваю первым · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">Клиент:</span> Здравствуйте, расскажите про ваш комплекс.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Конечно! У нас монолит-каркас, потолки высокие, три очереди, своя котельная, видеонаблюдение, чистовая отделка, закрытый двор…</p><p class="dialogue-line"><span class="who">Клиент:</span> Ага… понятно. Спасибо, я подумаю.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Хорошо, если что — обращайтесь.</p>
         </div>
@@ -95,78 +94,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Сначала спроси, потом рассказывай про дом</h2>
-    <p class="practice-focus">Сначала находишь живую задачу человека, потом рассказываешь — а не наоборот. Один вопрос «почему именно сейчас» проваливает разговор с дежурного «нужна квартира» на настоящую ситуацию: стало тесно, родился ребёнок, устали платить за съём. То, что человек назвал словами, и то, что им движет, — разные вещи. Когда услышал, что толкает искать, говоришь только про то, что попадает в его задачу — и человек слышит свою пользу, а не чужой список.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«Конечно, расскажу. Только сначала один вопрос, чтобы не грузить вас всем подряд: а почему именно сейчас задумались о квартире — что-то в жизни поменялось? Тогда расскажу ровно про то, что важно именно вам.»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/core_pain/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/core_pain/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx1zr0KgCAYheF7OfM3-EME3kpIRDk4lJpu4b1nDSJk83k4vBfi6ryBwupOM_vFHiBEE6AYwSazR6jpQrBba-YwFOZ8KqMgRpK4ztRhY8N4YazPRGUPEn-MV8beN9Fn8tum8w2hmEgx.ajKuZQ.gzvp3QJ42fVaJ9kFOptlrxASZUI">
+      
+        
+        <fieldset>
+          <legend>Менеджер сразу выдал клиенту монолит-каркас, высокие потолки, три очереди и котельную — и услышал «спасибо, я подумаю». В чём была главная ошибка?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Не назвал цену — клиент ушёл, потому что не понял стоимость</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Не спросил ни слова о человеке: для кого квартира и почему ищет сейчас — рассказывал в пустоту</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Слишком вежливо говорил, нужно было настойчивее звать на встречу</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Мало рассказал — нужно было добавить ещё больше характеристик дома</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Менеджер рассказывает всем звонящим одно и то же заученное описание комплекса. Чем это плохо?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Он промахивается мимо большинства: у каждого своя задача, а слышат все один и тот же чужой список</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Плохо только то, что в таком рассказе нет цены</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Плохо, что клиент успевает всё узнать и ему незачем приезжать на встречу</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Ничем, единый рассказ экономит время и звучит профессионально</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему фраза клиента «нужна квартира» — это ещё НЕ его настоящая задача?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Потому что за одной и той же фразой прячутся разные жизни: тесно после рождения ребёнка, устал от дороги, хочет вложить деньги</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Потому что задача появляется только на встрече, по телефону её узнать нельзя</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Потому что без цены любая фраза клиента ничего не значит</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Потому что клиент всегда говорит неправду и проверяет менеджера</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент с порога: «Расскажите про ваш комплекс». Что сделать первым, чтобы не говорить «обо всём подряд» в пустоту?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Сначала задать короткий вопрос «а почему именно сейчас задумались о квартире, что-то поменялось?» и понять живую задачу</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Подробно описать дом: материалы, этажи, двор, отделку — клиент же сам попросил</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Сказать «лучшие варианты быстро разбирают» и сразу предложить записаться</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Назвать цену и площадь самой популярной квартиры, чтобы человек понял, по карману ли</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Что на самом деле даёт вопрос «почему именно сейчас» в начале разговора?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Ничего не добавляет, но без него даже идеальный рассказ не цепляет — бьёт не в ту задачу</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Сам по себе «умножает» интерес клиента и поднимает шанс покупки в разы</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Помогает быстро отсеять клиента и завершить ненужный разговор</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Позволяет сразу назвать подходящую цену и закрыть на оплату</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 5 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Профессия: ты помощник, а не впариватель</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="core_profession.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Доверие: за грубостью — живой клиент</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

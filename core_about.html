@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Знаю компанию · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -138,78 +136,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: О компании: наследие, которое доказываем</h2>
-    <p class="practice-focus">Клиент устал от «мы надёжный застройщик, поверьте» — так говорят все. Когда ты вместо обещаний опираешься на то, что можно показать (готовые дома, открытая стройка, документы на встрече), человек слышит уверенность без давления — и сам успокаивается. Сначала смысл (наследие), потом доказательство, и сразу повод приехать.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«ATAMŪRA — это наследие предков. Мы строим дом, который остаётся семье на годы. И мы не обещаем словами — мы показываем: у нас есть дома, в которых уже живут люди, а стройку и документы вы своими глазами увидите на встрече.»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/core_about/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/core_about/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx1zrEKhDAQhOF3mXqKbMQT8iqHiOZSWBwxJlbiuxstRMHU-_HProjWTw4G1s-u6we_JBDRBRhFjMn9I8x3RRh_D9SFJjs_pXzVrChU7cY397lcRU1FKTh960kulnr1rSdHseDk8d-52247yJNK5g.ajKuZQ.hZUPuXnCEjAgcRei9QNWm4r-nqE">
+      
+        
+        <fieldset>
+          <legend>В каком порядке выстроить ответ новому клиенту, который про нас ничего не знает?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Сначала смысл (наследие), потом доказательство (готовые дома, открытая стройка), и сразу повод приехать на встречу</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Сначала рассказать, чем мы лучше каждого конкурента по списку</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Сначала назвать цену и скидку, остальное потом</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Сначала перечислить все технические характеристики дома, смысл не важен</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Сотрудник не уверен в цифрах о компании — годе основания и числе семей. Что сделать перед звонком?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Вообще не говорить ничего о компании, чтобы не ошибиться</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Сказать клиенту любую цифру, потом при случае поправить</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Назвать клиенту впечатляющие круглые цифры — звучит солиднее</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Не называть непроверенные цифры, опираться на смысл и на то, что можно показать, а точные данные сверить у руководителя</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему в Академии говорят, что «первая продажа — это продать компанию самому себе»?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Потому что так принято начинать карьеру в любой компании, это формальность</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Потому что без личной веры голос звучит мёртво — клиент по голосу слышит, веришь ли ты сам, и заученный скрипт его не убеждает</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Потому что компанию нужно расхваливать в каждом звонке как можно громче</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Потому что сотрудник по правилам обязан сначала купить квартиру в нашем ЖК</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент: «А деньги мои у вас точно никуда не денутся?» Как ответить правильно?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> «Не думайте о деньгах, лучше скорее принимайте решение»</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> «Гарантирую, деньги полностью защищены, можете вообще не переживать»</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> «Честно — за деньги у нас никто не отвечает, как повезёт»</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> «Это важный вопрос, точную формулировку по защите даст руководитель — детали разберём на встрече»</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент: «Первый раз про вас слышу, застройщиков сейчас много — почему именно вам верить?» Что ближе к нашему подходу?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Заверить, что деньги клиента у нас полностью защищены и переживать не о чем</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Объяснить, что у других застройщиков и стройка хуже, и обманывают чаще</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Сказать, что у нас уже есть дома, где живут люди, а стройку и документы клиент сам увидит на встрече</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Сказать, что мы лучшие и самые надёжные на рынке и всё сдаём точно в срок</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 1 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Старт курса</strong>
-        <p>Вы на первой миссии. Если теряетесь, вернитесь на карту курса.</p>
-        <a class="secondary-link" href="index.html">На карту курса</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Вера в продукт: два страха клиента</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

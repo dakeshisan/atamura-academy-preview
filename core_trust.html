@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Создаю доверие · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">Клиент (резко):</span> Знаю я вас, застройщиков. Наобещаете, а потом дом не сдадите. И цены наверняка космос.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Ну зачем вы так сразу? У нас всё нормально, мы давно строим. Раз вы так настроены — может, не будем тратить ваше время?</p><p class="dialogue-line"><span class="who">Клиент:</span> Вот-вот, я и говорю — нормальные так не отвечают. Всё с вами ясно.</p>
         </div>
@@ -95,78 +94,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Доверие: за грубостью — живой клиент</h2>
-    <p class="practice-focus">Сначала признаёшь право человека на осторожность — это снимает защиту, и грубость часто гаснет сама. Ты не споришь и не оправдываешься, а спокойно берёшь разговор в свои руки: «давайте так» — и переводишь на его задачу. Так ты отдаёшь клиенту контроль над тем, что важно ЕМУ, и одновременно ведёшь разговор сам. Ничего не обещаешь на словах.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«Понимаю вас — видимо, был неприятный опыт, и осторожность тут разумная. Давайте так: я не буду ничего обещать на словах, а покажу факты и подберу под вашу задачу. Что для вас сейчас важнее всего?»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/core_trust/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/core_trust/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJx1zDEOgCAQBdG7_HoLEbXgKoZQIAWFQQQrwt3dWBhMpJ6XKUg2HA4KNpzO5PNKGYTkItRA8NntCWotiH77IBMlu3BkriMJkjToSn9uaZxk2XPz6_hF_Oy4qXGCXe8nXvfcSOqq6w06tUvO.ajKuZQ.Cl_OUBnXKjuPUzTYef7lnic5Whs">
+      
+        
+        <fieldset>
+          <legend>Чем «обожжённый» клиент отличается от «отмороженного»?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> «Обожжённого» где-то подвели и он защищается грубостью, а «отмороженный» пришёл только хамить и покупать не собирался</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> «Обожжённый» хамит сильнее, а «отмороженный» вежливее</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> «Отмороженный» всегда покупает, а «обожжённый» никогда</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Это одно и то же, просто разные слова для грубого клиента</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Менеджер на грубость ответил «ну зачем вы так, у нас всё нормально, может, не будем тратить ваше время?». Что он сделал не так?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> Ошибся только в том, что не назвал цену и условия</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> Слишком долго терпел — надо было завершить разговор ещё раньше</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> Принял грубость на свой счёт, начал оправдываться и сам закрыл дверь перед «обожжённым»</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> Всё верно — с грубым клиентом действительно лучше попрощаться сразу</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент защищается с порога. Какой первый шаг снимает его защиту?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Сказать, что у нас таких проблем не бывает, и сменить тему</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Признать его право на осторожность: «понимаю, видимо, был неприятный опыт» — и не спорить</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Сразу предложить скидку, чтобы расположить к себе</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Доказать цифрами, что мы лучше конкурентов</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>С кем из двух типов клиентов есть право спокойно завершить разговор?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> С «отмороженным», который пришёл только хамить и покупать не собирался</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> С любым, кто повысил голос — незачем терпеть грубость</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Ни с кем: завершать разговор первым нельзя никогда</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> С «обожжённым» — раз грубит, значит зря тратишь время</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Что чаще всего мешает человеку купить у нас в первую очередь?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Недоверие: сначала человек решает не «брать ли квартиру», а «можно ли верить этому продавцу»</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Неудобный район и расположение объекта</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Высокая цена — почти все уходят именно из-за денег</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Слишком долгие сроки строительства</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 6 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Сначала спроси, потом рассказывай про дом</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="core_pain.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Путь клиента: цель звонка — встреча, не продажа</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>

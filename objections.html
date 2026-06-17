@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -40,12 +40,10 @@
   <p>Звонок · 100 XP</p>
   <div class="lesson-steps">
     <span class="done">1. Изучить</span>
-    <span class="">2. Отметить просмотр</span>
-    <span class="">3. Сдать проверку</span>
+    <span class="">2. Сдать проверку</span>
   </div>
   <nav class="lesson-jumps" aria-label="Быстрые переходы урока">
     <a href="#lesson">К уроку</a>
-    <a href="#practice">К практике</a>
     <a href="#quiz">К проверке</a>
     <a href="/glossary">Словарь</a>
   </nav>
@@ -78,6 +76,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Как сливают</h2>
         <p class="dialogue-callid">реальный звонок из практики</p>
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">менеджер:</span> [имя], вы смотрели Керуен — это минут десять от нового аэропорта.</p><p class="dialogue-line"><span class="who">клиент:</span> Ну это далековато. Мы на Калкамане, в другую сторону.</p><p class="dialogue-line"><span class="who">менеджер:</span> Понял, вам от Калкамана ехать далеко, правильно?</p><p class="dialogue-line"><span class="who">клиент:</span> Далековато, да. Ладно тогда, до свидания.</p>
         </div>
@@ -98,6 +97,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Ещё пример · дорого</h2>
         <p class="dialogue-callid">реальный звонок из практики</p>
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">Клиент:</span> Рассматриваю в пределах [потолок бюджета].</p><p class="dialogue-line"><span class="who">Менеджер:</span> Квадрат от [цена], двухкомнатная от [цена выше бюджета] и выше.</p><p class="dialogue-line"><span class="who">Клиент:</span> Ну это дорого тоже, дороговато.</p>
         </div>
@@ -110,6 +110,7 @@
         <span class="lc-tag bad-tag">Разбор звонка</span>
         <h2>❌ Ещё пример · whatsapp</h2>
         <p class="dialogue-callid">реальный звонок из практики</p>
+        
         <div class="dialogue dialogue-bad">
           <p class="dialogue-line"><span class="who">Менеджер:</span> По таунхаусам, которые просили в WhatsApp. Посмотрели?</p><p class="dialogue-line"><span class="who">Клиент:</span> Да. А подешевле, меньшей площади есть?</p><p class="dialogue-line"><span class="who">Менеджер:</span> Есть евродвушки…</p><p class="dialogue-line"><span class="who">Клиент:</span> Понял, подумаю.</p><p class="dialogue-line"><span class="who">Менеджер:</span> Отправлю презентацию, посмотрите, подумаете.</p>
         </div>
@@ -119,78 +120,109 @@
   
 </section>
 
-
-  <section class="card practice-card" id="practice">
-    <p class="kicker">Практика звонка</p>
-    <h2>Отработка: Шаг 6 · Возражения: 5 шагов без спора</h2>
-    <p class="practice-focus">Это и есть алгоритм вместо согласия: не подтверждаем «далеко», а присоединяемся к важности вопроса, уточняем критерий (для кого квартира, где дети), переворачиваем «далеко» фактом (своё жильё перекрывает дорогу) и переводим расчёт маршрута на показ — там его считают предметно, не в трубке. Завершаем двумя слотами времени, чтобы клиенту осталось выбрать «когда», а не «ехать ли». Если география правда не подходит — следующий шаг не «до свидания», а ближний ЖК линейки (какой именно — у РОП) или лист ожидания: тёплого клиента не отпускаем.</p>
-    <dl class="practice-lines">
-      <div>
-        <dt>Фраза для отработки</dt>
-        <dd>«Понимаю, расположение — важный вопрос. А для кого квартира, дети в школу где ходят? Смотрите: многие сначала думают &#34;далеко&#34;, а потом считают — это своё жильё, не съёмное, и дорога перестаёт быть проблемой. Давайте на показе посчитаем по времени и деньгам конкретно под ваш маршрут. Вам в будни вечером или в выходной удобнее подъехать?»</dd>
-      </div>
-      <div>
-        <dt>Самопроверка</dt>
-        <dd>Звучит спокойно, без давления, ведёт к показу?</dd>
-      </div>
-    </dl>
-    <div class="practice-drill">
-      <strong>Мини-дрилл на 2 минуты</strong>
-      <ol>
-        <li>Произнесите фразу вслух 3 раза без подсказки.</li>
-        <li>Подставьте реальный объект ATAMURA и задачу клиента без имени и телефона.</li>
-        <li>Перед проверкой сверитесь с самопроверкой выше.</li>
-      </ol>
-    </div>
-    <p class="muted">Это задание выполняется в рабочей практике с РОП. В Академии не храните имя, телефон или другие данные клиента.</p>
-  </section>
-
-
 <section class="card" id="quiz">
   <h2>Проверка</h2>
   
-    <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
-    <form onsubmit="return false" data-preview method="post" action="/lesson/objections/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
-      <button type="submit" class="secondary">Отметить урок просмотренным</button>
+    
+      <p class="muted">Изучили материал — проходите проверку. Сдадите тест, и откроется следующая миссия.</p>
+    
+    <form onsubmit="return false" data-preview method="post" action="/quiz/objections/answer" class="quiz">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKuZQ.IFhm6jtj_mw-T7kPCwcLCyEROQY">
+      <input type="hidden" name="exam_form" value=".eJyNzL0KgCAUhuF7-eYz-FMN3kpEUDkYlMlxk-49XaSgoPl9eBN49oeFgZ9WO0fndwaBbYARBBftxjB9QnDLA42hzc4fMVdNkhSJ4aQ319ycyE5-uK46RUV-Ofnzp6orShc3nBftsUsx.ajKuZQ.NIlfRyNGm4fp15B81kinUW0U7lQ">
+      
+        
+        <fieldset>
+          <legend>Клиент говорит «далеко». Менеджер отвечает: «Понял, вам от вашего района ехать далеко, правильно?». Что здесь не так?</legend>
+          
+            
+              <label><input type="radio" name="answer_0" value="0" required> Надо было сказать «успейте, пока есть квартиры»</label>
+            
+              <label><input type="radio" name="answer_0" value="1" required> Всё верно — менеджер показал, что услышал клиента</label>
+            
+              <label><input type="radio" name="answer_0" value="2" required> Надо было сразу дать скидку за неудобство</label>
+            
+              <label><input type="radio" name="answer_0" value="3" required> Менеджер сам подтвердил возражение и закрыл себе дверь, вместо того чтобы уточнить и перевести на показ</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Почему на возражении запрещено слово «но» и чем его заменить?</legend>
+          
+            
+              <label><input type="radio" name="answer_1" value="0" required> «Но» звучит как спор — заменяем на мостик «именно поэтому» / «при этом»</label>
+            
+              <label><input type="radio" name="answer_1" value="1" required> «Но» слишком вежливое — заменяем на «вы не правы»</label>
+            
+              <label><input type="radio" name="answer_1" value="2" required> «Но» заменяем на паузу и молчание до конца разговора</label>
+            
+              <label><input type="radio" name="answer_1" value="3" required> «Но» можно, если сказать его погромче</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Чем ВСЕГДА заканчивается отработка возражения?</legend>
+          
+            
+              <label><input type="radio" name="answer_2" value="0" required> Полной консультацией и расчётом по телефону</label>
+            
+              <label><input type="radio" name="answer_2" value="1" required> Обещанием перезвонить, когда у клиента появится время</label>
+            
+              <label><input type="radio" name="answer_2" value="2" required> Победой в споре — клиент признал, что был неправ</label>
+            
+              <label><input type="radio" name="answer_2" value="3" required> Возвратом к встрече с двумя слотами времени на выбор</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Клиент в трубке возражает. Как это правильно понимать?</legend>
+          
+            
+              <label><input type="radio" name="answer_3" value="0" required> Это знак, что надо срочно сбросить цену</label>
+            
+              <label><input type="radio" name="answer_3" value="1" required> Это спрятанная просьба «докажи, что ехать к вам стоит» — сигнал интереса</label>
+            
+              <label><input type="radio" name="answer_3" value="2" required> Это повод дать полную консультацию по телефону</label>
+            
+              <label><input type="radio" name="answer_3" value="3" required> Это окончательный отказ — пора прощаться</label>
+            
+          
+        </fieldset>
+      
+        
+        <fieldset>
+          <legend>Какой правильный порядок 5 шагов работы с возражением?</legend>
+          
+            
+              <label><input type="radio" name="answer_4" value="0" required> Поспорить → доказать → надавить → дожать → закрыть</label>
+            
+              <label><input type="radio" name="answer_4" value="1" required> Уточнить → отправить материалы → перезвонить через неделю</label>
+            
+              <label><input type="radio" name="answer_4" value="2" required> Сразу аргумент → скидка → срочность → прощание</label>
+            
+              <label><input type="radio" name="answer_4" value="3" required> Принять → уточнить → локализовать → аргументировать фактом → вернуть к показу</label>
+            
+          
+        </fieldset>
+      
+      <button type="submit">Сдать проверку</button>
     </form>
   
 </section>
 
-<section class="card lesson-nav-card">
-  <div class="section-head">
-    <div>
-      <p class="kicker">Навигация урока</p>
-      <h2>Куда идти дальше</h2>
+<section class="card lesson-nav" aria-label="Навигация урока">
+  
+    <p class="lesson-nav-gate">Следующий урок откроется после сдачи теста.</p>
+    <div class="lesson-nav-row">
+      <a class="secondary-link muted" href="index.html">На карту курса</a>
+      <a class="primary" href="#quiz">Сдать тест</a>
     </div>
-    <span class="badge">миссия 16 / 19</span>
-  </div>
-  <div class="lesson-nav-grid">
-    <article>
-      <span>Назад</span>
-      
-        <strong>Шаг 5 · Презентация встречи: продаём показ, не квартиру</strong>
-        <p>Вернуться к прошлой миссии и повторить базовую фразу.</p>
-        <a class="secondary-link" href="pitch.html">Открыть прошлую миссию</a>
-      
-    </article>
-    <article>
-      <span>Карта</span>
-      <strong>Весь маршрут</strong>
-      <p>Посмотреть прогресс, 3-дневный спринт, продукты и финальный гейт.</p>
-      <a class="secondary-link" href="index.html">На карту курса</a>
-    </article>
-    <article>
-      <span>Дальше</span>
-      
-        <strong>Шаг 7 · Закрытие на показ: два времени + фиксация</strong>
-        
-          <p>Следующая миссия откроется после короткой проверки текущего урока.</p>
-          <a class="secondary-link" href="#quiz">Сдать проверку</a>
-        
-      
-    </article>
-  </div>
+  
 </section>
 
   </main>
