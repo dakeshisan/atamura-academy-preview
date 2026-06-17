@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Академия ATAMŪRA · Результат теста · Шаг 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#284157;
+    --navy-700:#1d3142;
+    --navy-900:#15242f;
+    --teal:#007484;
+    --teal-600:#00606e;
+    --teal-tint:#e2eef0;
+    --gold:#CFB372;
+    --gold-deep:#b7995a;
+    --gold-soft:#f0e6cf;
+    --cream:#F7F5EE;
+    --cream-deep:#efece1;
+    --paper:#fffefb;
+    --ink:#23303a;
+    --muted:#5f6b75;
+    --muted-soft:#8b96a0;
+    --good:#1f7a4d;
+    --good-tint:#e7f2ec;
+    --good-soft:#d6ebdf;
+    --bad:#b5482e;
+    --bad-tint:#f6e7e2;
+    --bad-soft:#eed6cd;
+    --line:#e6e2d6;
+    --line-strong:#d8d3c4;
+
+    --shadow-sm:0 1px 2px rgba(21,36,47,.04), 0 1px 3px rgba(21,36,47,.05);
+    --shadow-md:0 2px 4px rgba(21,36,47,.04), 0 8px 24px rgba(21,36,47,.07);
+    --shadow-lg:0 4px 8px rgba(21,36,47,.05), 0 20px 48px rgba(21,36,47,.12);
+    --shadow-navy:0 12px 36px rgba(40,65,87,.28);
+    --shadow-gold:0 10px 30px rgba(183,153,90,.30);
+
+    --r-sm:10px;
+    --r-md:16px;
+    --r-lg:22px;
+    --r-xl:28px;
+
+    --sidebar-w:84px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',sans-serif;
+    color:var(--ink);
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(1200px 600px at 8% -5%, rgba(0,116,132,.06), transparent 60%),
+      radial-gradient(900px 500px at 105% 0%, rgba(207,179,114,.10), transparent 55%),
+      radial-gradient(1000px 700px at 50% 120%, rgba(40,65,87,.05), transparent 60%);
+    background-attachment:fixed;
+    min-height:100vh;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:.005em;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;z-index:0;
+    opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+
+  h1,h2,h3,h4,.display{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.01em;color:var(--navy);line-height:1.08}
+
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  :focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+  .shell{position:relative;z-index:1;display:flex;min-height:100vh}
+
+  /* ============ SIDEBAR ============ */
+  aside.nav{
+    position:sticky;top:0;height:100vh;
+    width:var(--sidebar-w);flex-shrink:0;
+    background:linear-gradient(180deg,var(--navy) 0%, var(--navy-900) 100%);
+    display:flex;flex-direction:column;align-items:center;
+    padding:22px 0 18px;gap:6px;z-index:30;
+    box-shadow:var(--shadow-navy);
+  }
+  .brand-mark{
+    width:46px;height:46px;border-radius:13px;
+    background:linear-gradient(150deg,var(--gold) 0%, var(--gold-deep) 100%);
+    display:grid;place-items:center;
+    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:var(--navy-900);
+    box-shadow:0 6px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.45);
+    margin-bottom:20px;letter-spacing:0;
+  }
+  nav.rail{display:flex;flex-direction:column;gap:7px;width:100%;align-items:center;flex:1}
+  .rail a{
+    position:relative;width:60px;padding:11px 0 9px;border-radius:15px;
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+    color:rgba(231,238,242,.62);transition:all .28s var(--ease);
+  }
+  .rail a .ic{width:23px;height:23px;display:block;transition:transform .28s var(--ease)}
+  .rail a .lbl{font-size:9.5px;font-weight:500;letter-spacing:.02em;line-height:1;text-align:center;white-space:nowrap}
+  .rail a:hover{color:#fff;background:rgba(255,255,255,.07)}
+  .rail a:hover .ic{transform:translateY(-2px) scale(1.06)}
+  .rail a.active{color:var(--navy-900);background:linear-gradient(150deg,#fff,#f3efe2)}
+  .rail a.active::before{
+    content:"";position:absolute;left:-16px;top:50%;transform:translateY(-50%);
+    width:5px;height:30px;border-radius:0 5px 5px 0;background:var(--gold);
+    box-shadow:0 0 14px rgba(207,179,114,.7);
+  }
+  .rail-bottom{display:flex;flex-direction:column;gap:7px;width:100%;align-items:center;padding-top:8px;border-top:1px solid rgba(255,255,255,.09)}
+  .nav-avatar{
+    width:42px;height:42px;border-radius:50%;margin-top:4px;
+    background:linear-gradient(150deg,var(--teal),var(--teal-600));
+    display:grid;place-items:center;color:#fff;font-weight:600;font-size:15px;
+    border:2px solid rgba(255,255,255,.25);box-shadow:0 4px 10px rgba(0,0,0,.25);
+  }
+
+  /* ============ MAIN ============ */
+  main{flex:1;min-width:0;padding:30px 40px 64px;max-width:1180px;margin:0 auto;width:100%}
+
+  .crumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:22px;transition:color .2s var(--ease)}
+  .crumb:hover{color:var(--teal)}
+  .crumb svg{width:16px;height:16px}
+
+  /* ============ STATE SWITCHER (mockup helper) ============ */
+  .state-switch{display:inline-flex;gap:4px;padding:5px;background:var(--paper);border:1px solid var(--line);border-radius:99px;box-shadow:var(--shadow-sm);margin-bottom:26px}
+  .state-switch button{padding:9px 20px;border-radius:99px;font-size:13.5px;font-weight:600;color:var(--muted);transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:8px}
+  .state-switch button svg{width:15px;height:15px}
+  .state-switch button[aria-pressed="true"].fail{background:var(--bad);color:#fff;box-shadow:0 5px 14px rgba(181,72,46,.3)}
+  .state-switch button[aria-pressed="true"].pass{background:var(--good);color:#fff;box-shadow:0 5px 14px rgba(31,122,77,.3)}
+  .state-switch .tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-soft);font-weight:600;align-self:center;padding:0 12px 0 6px}
+
+  .view{display:none}
+  .view.show{display:block}
+
+  /* ============ RESULT HERO ============ */
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+  .result-stack{display:flex;flex-direction:column;gap:24px}
+
+  .result-hero{padding:0;overflow:hidden;border:none}
+  .rh-band{padding:34px 38px 30px;color:#eef4f6;position:relative;overflow:hidden}
+  .rh-band::after{content:"";position:absolute;right:-50px;bottom:-70px;width:240px;height:240px;border-radius:50%;pointer-events:none}
+  /* fail band */
+  .rh-band.fail{background:radial-gradient(120% 150% at 88% -10%, rgba(181,72,46,.55), transparent 55%),linear-gradient(155deg,var(--navy) 0%, var(--navy-900) 100%)}
+  .rh-band.fail::after{background:radial-gradient(circle,rgba(181,72,46,.28),transparent 70%)}
+  /* pass band */
+  .rh-band.pass{background:radial-gradient(120% 150% at 88% -10%, rgba(0,116,132,.55), transparent 55%),linear-gradient(155deg,var(--navy) 0%, var(--navy-900) 100%)}
+  .rh-band.pass::after{background:radial-gradient(circle,rgba(207,179,114,.28),transparent 70%)}
+
+  .rh-inner{display:flex;align-items:center;gap:26px;position:relative;z-index:1;flex-wrap:wrap}
+  .rh-medal{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;position:relative}
+  .rh-medal svg{width:46px;height:46px}
+  .rh-band.fail .rh-medal{background:linear-gradient(150deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1.5px solid rgba(255,255,255,.18)}
+  .rh-band.fail .rh-medal svg{color:#f0b9a8}
+  .rh-band.pass .rh-medal{background:linear-gradient(150deg,var(--gold),var(--gold-deep));box-shadow:var(--shadow-gold), 0 0 0 10px rgba(207,179,114,.14)}
+  .rh-band.pass .rh-medal svg{color:var(--navy-900)}
+  .rh-medal .spark{position:absolute;inset:-6px;border-radius:50%;border:1.5px dashed rgba(207,179,114,.4);animation:spin 18s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .rh-tx{flex:1;min-width:240px}
+  .rh-tx .lab{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+  .rh-band.fail .rh-tx .lab{color:#f0b9a8}
+  .rh-band.pass .rh-tx .lab{color:var(--gold)}
+  .rh-tx h1{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,42px);font-weight:600;color:#fff;line-height:1.04;margin-bottom:10px}
+  .rh-tx p{font-size:14.5px;color:rgba(238,244,246,.78);line-height:1.55;max-width:52ch}
+
+  /* score donut */
+  .rh-score{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:1}
+  .score-ring{position:relative;width:120px;height:120px}
+  .score-ring svg{transform:rotate(-90deg)}
+  .score-ring .track{fill:none;stroke:rgba(255,255,255,.12);stroke-width:9}
+  .score-ring .val{fill:none;stroke-width:9;stroke-linecap:round;transition:stroke-dashoffset 1.2s var(--ease)}
+  .rh-band.fail .score-ring .val{stroke:#e08a72}
+  .rh-band.pass .score-ring .val{stroke:var(--gold)}
+  .score-ring .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .score-ring .ctr .big{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#fff;line-height:1}
+  .score-ring .ctr .big small{font-size:20px;color:rgba(238,244,246,.6)}
+  .score-ring .ctr .lab2{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(238,244,246,.6);margin-top:2px;font-weight:600}
+  .rh-score .verdict{font-size:12px;font-weight:600;letter-spacing:.04em;padding:5px 14px;border-radius:99px}
+  .rh-band.fail .rh-score .verdict{background:rgba(181,72,46,.25);color:#f0b9a8;border:1px solid rgba(224,138,114,.4)}
+  .rh-band.pass .rh-score .verdict{background:rgba(207,179,114,.2);color:var(--gold);border:1px solid rgba(207,179,114,.4)}
+
+  /* ===== FAIL: cooldown bar ===== */
+  .cooldown{display:flex;align-items:center;gap:16px;padding:18px 38px;background:linear-gradient(120deg,var(--bad-tint),#fbf1ee);border-top:1px solid var(--bad-soft);position:relative;z-index:1}
+  .cooldown .cd-ring{position:relative;width:52px;height:52px;flex-shrink:0}
+  .cooldown .cd-ring svg{transform:rotate(-90deg)}
+  .cooldown .cd-ring .t{fill:none;stroke:var(--bad-soft);stroke-width:5}
+  .cooldown .cd-ring .v{fill:none;stroke:var(--bad);stroke-width:5;stroke-linecap:round}
+  .cooldown .cd-ring .ctr{position:absolute;inset:0;display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--bad);font-family:'Cormorant Garamond',serif}
+  .cooldown .cd-tx{flex:1;min-width:0}
+  .cooldown .cd-tx .t{font-size:14.5px;font-weight:600;color:var(--bad)}
+  .cooldown .cd-tx .s{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .cooldown .cd-tx .s b{color:var(--ink);font-weight:600}
+  .btn-disabled{display:inline-flex;align-items:center;gap:9px;background:var(--cream-deep);color:var(--muted-soft);font-weight:600;font-size:14px;padding:13px 22px;border-radius:12px;cursor:not-allowed;border:1px solid var(--line-strong);flex-shrink:0}
+  .btn-disabled svg{width:16px;height:16px}
+
+  /* in-place retry note */
+  .retry-note{display:flex;align-items:center;gap:9px;padding:13px 38px;background:var(--cream);border-top:1px solid var(--line);font-size:13px;color:var(--muted);position:relative;z-index:1}
+  .retry-note svg{width:16px;height:16px;color:var(--teal);flex-shrink:0}
+  .retry-note b{color:var(--ink);font-weight:600}
+
+  /* ============ ERROR REVIEW ============ */
+  .review-card{padding:30px 34px 32px}
+  .review-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .review-head .ic{width:46px;height:46px;border-radius:13px;background:var(--bad-tint);display:grid;place-items:center;flex-shrink:0}
+  .review-head .ic svg{width:23px;height:23px;color:var(--bad)}
+  .review-head h2{font-size:28px;line-height:1.05}
+  .review-head .sub{font-size:13px;color:var(--muted);margin-top:3px}
+  .review-intro{font-size:14.5px;color:var(--ink);line-height:1.6;margin:14px 0 8px;max-width:66ch}
+  .review-intro b{color:var(--navy);font-weight:600}
+
+  .rev-q{margin-top:20px;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+  .rev-q-top{display:flex;align-items:flex-start;gap:13px;padding:16px 18px;background:var(--cream)}
+  .rev-q-top .qn{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px}
+  .rev-q.wrong .qn{background:var(--bad);color:#fff}
+  .rev-q.ok .qn{background:var(--good);color:#fff}
+  .rev-q-top .qt{flex:1;min-width:0}
+  .rev-q-top .qt .ttl{font-family:'Cormorant Garamond',serif;font-size:18.5px;font-weight:600;color:var(--navy);line-height:1.25}
+  .rev-q-top .badge{font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:4px 11px;border-radius:99px;flex-shrink:0;white-space:nowrap}
+  .rev-q.wrong .badge{background:var(--bad-tint);color:var(--bad)}
+  .rev-q.ok .badge{background:var(--good-tint);color:var(--good)}
+
+  .rev-ans{padding:16px 18px;display:flex;flex-direction:column;gap:9px}
+  .ans{display:flex;align-items:flex-start;gap:11px;padding:11px 14px;border-radius:var(--r-sm);font-size:14px;line-height:1.45}
+  .ans .mk{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+  .ans .mk svg{width:13px;height:13px;color:#fff}
+  .ans .atxt{flex:1}
+  .ans .atag{font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;display:block;margin-bottom:2px}
+  .ans.your-wrong{background:var(--bad-tint);border:1px solid var(--bad-soft)}
+  .ans.your-wrong .mk{background:var(--bad)}
+  .ans.your-wrong .atag{color:var(--bad)}
+  .ans.correct{background:var(--good-tint);border:1px solid var(--good-soft)}
+  .ans.correct .mk{background:var(--good)}
+  .ans.correct .atag{color:var(--good)}
+  .ans.your-correct{background:var(--good-tint);border:1px solid var(--good-soft)}
+  .ans.your-correct .mk{background:var(--good)}
+  .ans.your-correct .atag{color:var(--good)}
+
+  .rev-why{margin:2px 18px 16px;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:var(--r-sm);background:linear-gradient(120deg,var(--gold-soft),#fffdf6);border:1px solid rgba(207,179,114,.4)}
+  .rev-why .ic{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:linear-gradient(150deg,var(--gold),var(--gold-deep));display:grid;place-items:center}
+  .rev-why .ic svg{width:15px;height:15px;color:var(--navy-900)}
+  .rev-why .tx{font-size:13.5px;line-height:1.58;color:var(--ink)}
+  .rev-why .tx b{color:var(--navy);font-weight:600}
+
+  /* ============ FAIL FOOTER (retry in place) ============ */
+  .fail-foot{margin-top:4px;padding:24px 30px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--navy) 0%, var(--navy-900) 100%);color:#eef4f6;box-shadow:var(--shadow-navy);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .fail-foot::after{content:"";position:absolute;right:-40px;bottom:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(181,72,46,.2),transparent 70%);pointer-events:none}
+  .fail-foot .ff-l{display:flex;align-items:center;gap:15px;position:relative;z-index:1}
+  .fail-foot .ff-ic{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;flex-shrink:0}
+  .fail-foot .ff-ic svg{width:22px;height:22px;color:#f0b9a8}
+  .fail-foot .ff-tx .t{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff;line-height:1.12}
+  .fail-foot .ff-tx .s{font-size:12.5px;color:rgba(238,244,246,.66);margin-top:3px}
+  .fail-foot .ff-r{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+  .link-ghost{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:rgba(238,244,246,.78);padding:11px 16px;border-radius:11px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);transition:all .2s var(--ease)}
+  .link-ghost:hover{background:rgba(255,255,255,.1);color:#fff}
+  .link-ghost svg{width:16px;height:16px}
+
+  /* ============ PASS: rewards ============ */
+  .reward-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .reward{padding:24px 26px;display:flex;flex-direction:column;gap:4px;position:relative;overflow:hidden}
+  .reward .rtop{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .reward .rtop .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;flex-shrink:0}
+  .reward .rtop .ic.gold{background:var(--gold-soft);color:var(--gold-deep)}
+  .reward .rtop .ic.teal{background:var(--teal-tint);color:var(--teal-600)}
+  .reward .rtop .ic svg{width:22px;height:22px}
+  .reward .rtop .nm{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .reward .big{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--navy);line-height:1}
+  .reward .big small{font-size:20px;color:var(--muted-soft);font-weight:400}
+  .reward .desc{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5}
+  .reward .xp-bar{height:8px;border-radius:99px;background:var(--cream-deep);overflow:hidden;margin-top:14px}
+  .reward .xp-bar > i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+  .reward .xp-cap{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted-soft);margin-top:7px;font-weight:500}
+
+  /* badge card */
+  .badge-card{padding:26px 28px;display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,#fffdf6,#f7f1e2);border:1px solid rgba(207,179,114,.4)}
+  .badge-medal{width:84px;height:84px;border-radius:22px;background:linear-gradient(150deg,var(--gold),var(--gold-deep));display:grid;place-items:center;flex-shrink:0;box-shadow:var(--shadow-gold);position:relative}
+  .badge-medal svg{width:40px;height:40px;color:var(--navy-900)}
+  .badge-medal .ribbon{position:absolute;bottom:-9px;left:50%;transform:translateX(-50%);background:var(--navy);color:var(--gold);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:99px;white-space:nowrap;box-shadow:var(--shadow-sm)}
+  .badge-tx{flex:1;min-width:0}
+  .badge-tx .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:6px}
+  .badge-tx h3{font-size:25px;line-height:1.1;margin-bottom:6px}
+  .badge-tx p{font-size:13.5px;color:var(--muted);line-height:1.5;max-width:48ch}
+
+  /* answers recap (pass, collapsed-ish) */
+  .recap-card{padding:26px 30px}
+  .recap-card .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+  .recap-card .sec-head h3{font-size:22px}
+  .recap-card .sec-head .meta{font-size:12.5px;color:var(--muted);font-weight:500}
+  .recap-list{display:flex;flex-direction:column;gap:9px}
+  .recap-row{display:flex;align-items:center;gap:13px;padding:13px 15px;border-radius:var(--r-sm);background:var(--good-tint);border:1px solid var(--good-soft)}
+  .recap-row .ck{width:26px;height:26px;border-radius:8px;background:var(--good);display:grid;place-items:center;flex-shrink:0}
+  .recap-row .ck svg{width:14px;height:14px;color:#fff}
+  .recap-row .rt{font-size:14px;color:var(--ink);line-height:1.35;flex:1;min-width:0}
+  .recap-row .rt b{color:var(--navy);font-weight:600}
+
+  /* ============ PASS FOOTER (next unlocked) ============ */
+  .pass-foot{margin-top:4px;padding:26px 32px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--navy) 0%, var(--navy-900) 100%);color:#eef4f6;box-shadow:var(--shadow-navy);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+  .pass-foot::after{content:"";position:absolute;right:-40px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(207,179,114,.18),transparent 70%);pointer-events:none}
+  .pass-foot .pf-l{display:flex;align-items:center;gap:16px;position:relative;z-index:1}
+  .pass-foot .pf-ic{width:50px;height:50px;border-radius:14px;background:linear-gradient(150deg,var(--teal),var(--teal-600));display:grid;place-items:center;flex-shrink:0;box-shadow:0 6px 18px rgba(0,116,132,.4);position:relative}
+  .pass-foot .pf-ic svg{width:24px;height:24px;color:#fff}
+  .pass-foot .pf-ic .unlock-dot{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:2px solid var(--navy-900);display:grid;place-items:center}
+  .pass-foot .pf-ic .unlock-dot svg{width:9px;height:9px;color:var(--navy-900)}
+  .pass-foot .pf-tx .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px}
+  .pass-foot .pf-tx .t{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;color:#fff;line-height:1.08}
+  .pass-foot .pf-tx .s{font-size:12.5px;color:rgba(238,244,246,.66);margin-top:3px}
+  .pass-foot .pf-r{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+
+  /* ============ SHARED BUTTONS ============ */
+  .btn-gold{
+    display:inline-flex;align-items:center;gap:9px;background:linear-gradient(150deg,var(--gold),var(--gold-deep));
+    color:var(--navy-900);font-weight:600;font-size:15px;padding:14px 26px;border-radius:13px;
+    box-shadow:var(--shadow-gold);transition:all .26s var(--ease);letter-spacing:.01em;
+  }
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(183,153,90,.45)}
+  .btn-gold svg{width:18px;height:18px;transition:transform .26s var(--ease)}
+  .btn-gold:hover svg{transform:translateX(3px)}
+
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .7s var(--ease) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:920px){
+    main{padding:24px 22px 52px}
+    .rh-band{padding:26px 24px}
+    .cooldown,.retry-note{padding-left:24px;padding-right:24px}
+    .review-card,.recap-card{padding:24px 22px}
+    .reward-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    :root{--sidebar-w:62px}
+    aside.nav{padding:16px 0 14px}
+    .brand-mark{width:38px;height:38px;font-size:20px;margin-bottom:14px}
+    .rail a{width:50px}
+    .rail a .lbl{display:none}
+    .rail a .ic{width:22px;height:22px}
+    main{padding:20px 15px 44px}
+    .rh-inner{flex-direction:column;align-items:flex-start;gap:20px}
+    .rh-score{align-self:center}
+    .state-switch{flex-wrap:wrap}
+    .state-switch .tag{display:none}
+    .fail-foot,.pass-foot{flex-direction:column;align-items:stretch}
+    .fail-foot .ff-r,.pass-foot .pf-r{flex-direction:column;align-items:stretch}
+    .link-ghost,.btn-gold{justify-content:center}
+    .cooldown{flex-wrap:wrap}
+    .btn-disabled{width:100%;justify-content:center}
+    .badge-card{flex-direction:column;text-align:center}
+  }
+  @media (max-width:440px){
+    .rev-q-top{flex-wrap:wrap}
+    .rev-q-top .badge{order:3}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+    .rh-medal .spark{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="nav" aria-label="Главное меню">
+    <a class="brand-mark" href="#" title="ATAMŪRA" aria-label="На главную">Ā</a>
+    <nav class="rail" aria-label="Разделы академии">
+      <a href="#" class="active" aria-current="page">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span class="lbl">Обучение</span>
+      </a>
+      <a href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21 3 6"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+        <span class="lbl">Карта</span>
+      </a>
+      <a href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl">Тренажёр</span>
+      </a>
+      <a href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="13" y2="11"/></svg>
+        <span class="lbl">Словарь</span>
+      </a>
+      <a href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="lbl">Наставник</span>
+      </a>
+      <a href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span class="lbl">Поддержка</span>
+      </a>
+    </nav>
+    <div class="rail-bottom">
+      <div class="nav-avatar" title="Профиль" aria-label="Профиль: Алия">А</div>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main>
+
+    <a class="crumb" href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Шаг 5 · Презентация встречи
+    </a>
+
+    <!-- STATE SWITCHER (mockup helper — shows both result states in one file) -->
+    <div class="state-switch" role="group" aria-label="Состояние результата (демо)">
+      <span class="tag">Демо ↦</span>
+      <button class="fail" data-state="fail" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        Тест не сдан
+      </button>
+      <button class="pass" data-state="pass" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Тест сдан
+      </button>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ============== FAILED STATE =============== -->
+    <!-- ============================================================ -->
+    <section class="view show result-stack" id="view-fail" aria-label="Результат: тест не сдан">
+
+      <!-- HERO -->
+      <article class="card result-hero reveal">
+        <div class="rh-band fail">
+          <div class="rh-inner">
+            <div class="rh-medal" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 9.5 12 12m0 0 2.5 2.5M12 12l2.5-2.5M12 12l-2.5 2.5"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <div class="rh-tx">
+              <div class="lab">Проверка · Шаг 5</div>
+              <h1>Почти — ещё один заход</h1>
+              <p>Вы верно ответили на 3 из 5. Для допуска к следующему уроку нужно <b style="color:#f0b9a8">4 из 5</b>. Разберите 2 ошибки ниже — и пересдайте здесь же, на этом экране.</p>
+            </div>
+            <div class="rh-score">
+              <div class="score-ring">
+                <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Результат 3 из 5">
+                  <circle class="track" cx="60" cy="60" r="52"/>
+                  <circle class="val" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="130.7" data-pct="60"/>
+                </svg>
+                <div class="ctr"><span class="big">3<small>/5</small></span><span class="lab2">верно</span></div>
+              </div>
+              <span class="verdict">Порог не пройден</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- cooldown -->
+        <div class="cooldown" role="status">
+          <div class="cd-ring" aria-hidden="true">
+            <svg width="52" height="52" viewBox="0 0 52 52">
+              <circle class="t" cx="26" cy="26" r="22"/>
+              <circle class="v" cx="26" cy="26" r="22" stroke-dasharray="138.2" stroke-dashoffset="34.5"/>
+            </svg>
+            <span class="ctr">15:00</span>
+          </div>
+          <div class="cd-tx">
+            <div class="t">Пересдать можно через 15 минут</div>
+            <div class="s">Пауза, чтобы пересмотреть материал, а не угадывать. Следующая попытка — пауза <b>30 минут</b>, затем больше.</div>
+          </div>
+          <button class="btn-disabled" disabled aria-disabled="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Пересдать через 15:00
+          </button>
+        </div>
+
+        <!-- in-place retry note -->
+        <div class="retry-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          <span>Пересдача пройдёт <b>прямо здесь</b> — тест откроется на этом же экране, отдельно никуда переходить не нужно.</span>
+        </div>
+      </article>
+
+      <!-- ERROR REVIEW -->
+      <article class="card review-card reveal" style="animation-delay:.08s">
+        <div class="review-head">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
+          <div>
+            <h2>Разбор ошибок</h2>
+            <div class="sub">2 ответа из 5 — мимо. Вот где и почему</div>
+          </div>
+        </div>
+        <p class="review-intro">Ниже — только вопросы, где вы ошиблись. По каждому: <b>что вы выбрали</b>, <b>верный ответ</b> и короткое «почему». Остальные 3 вопроса засчитаны.</p>
+
+        <!-- Wrong Q2 -->
+        <div class="rev-q wrong">
+          <div class="rev-q-top">
+            <span class="qn" aria-hidden="true">2</span>
+            <div class="qt"><div class="ttl">Как звучит правильный порядок подачи цифр в презентации?</div></div>
+            <span class="badge">Ошибка</span>
+          </div>
+          <div class="rev-ans">
+            <div class="ans your-wrong">
+              <span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+              <span class="atxt"><span class="atag">Ваш ответ</span>Сначала цена, потом уже выгоды — пусть сразу видит сумму</span>
+            </div>
+            <div class="ans correct">
+              <span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="atxt"><span class="atag">Верный ответ</span>Сначала выгода, потом примерная вилка, и сразу оговорка «точный расчёт на показе»</span>
+            </div>
+          </div>
+          <div class="rev-why">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.4.8 1 .8 1.6V17h6.4v-.7c0-.6.3-1.2.8-1.6A7 7 0 0 0 12 2z"/></svg></span>
+            <span class="tx">Назовёшь платёж <b>до того</b>, как человек увидел ценность, — любая сумма покажется большой. Порядок: сначала выгода → примерная вилка → честная оговорка «точную сумму менеджер посчитает на показе». Именно оговорка и есть зацепка приехать.</span>
+          </div>
+        </div>
+
+        <!-- Wrong Q5 -->
+        <div class="rev-q wrong">
+          <div class="rev-q-top">
+            <span class="qn" aria-hidden="true">5</span>
+            <div class="qt"><div class="ttl">Клиент просит посчитать взнос со скидкой и итог по чистовой. Как правильно?</div></div>
+            <span class="badge">Ошибка</span>
+          </div>
+          <div class="rev-ans">
+            <div class="ans your-wrong">
+              <span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+              <span class="atxt"><span class="atag">Ваш ответ</span>Глухо ответить «это только в отделе продаж посчитают» и дать цену за квадрат</span>
+            </div>
+            <div class="ans correct">
+              <span class="mk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span class="atxt"><span class="atag">Верный ответ</span>Назвать примерную вилку с оговоркой «точный расчёт сделает менеджер на показе» и позвать приехать</span>
+            </div>
+          </div>
+          <div class="rev-why">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.5.4.8 1 .8 1.6V17h6.4v-.7c0-.6.3-1.2.8-1.6A7 7 0 0 0 12 2z"/></svg></span>
+            <span class="tx">Тёплый клиент сам просит посчитать — это готовый повод на показ, не отфутболивай. Базовую вилку с оговоркой проговаривает <b>сам телемаркетолог</b>; точные суммы из головы не называем (зона менеджера ОП), но и за «это в отделе продаж» не прячемся.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- FAIL FOOTER -->
+      <footer class="fail-foot reveal" style="animation-delay:.14s">
+        <div class="ff-l">
+          <span class="ff-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg></span>
+          <div class="ff-tx">
+            <div class="t">Пересдача откроется на этом экране</div>
+            <div class="s">Можно пересдать через 15:00 · повторите теорию и разбор выше</div>
+          </div>
+        </div>
+        <div class="ff-r">
+          <a href="#" class="link-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Перечитать урок
+          </a>
+          <span class="btn-disabled" aria-disabled="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Пересдать · 15:00
+          </span>
+        </div>
+      </footer>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ============== PASSED STATE =============== -->
+    <!-- ============================================================ -->
+    <section class="view result-stack" id="view-pass" aria-label="Результат: тест сдан">
+
+      <!-- HERO -->
+      <article class="card result-hero reveal">
+        <div class="rh-band pass">
+          <div class="rh-inner">
+            <div class="rh-medal" aria-hidden="true">
+              <span class="spark"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <div class="rh-tx">
+              <div class="lab">Проверка пройдена · Шаг 5</div>
+              <h1>Урок пройден</h1>
+              <p>5 из 5 — чисто. Вы освоили презентацию встречи: продаёте показ, а не квартиру. Следующая миссия открыта — <b style="color:var(--gold)">Шаг 6 · Работа с возражениями</b>.</p>
+            </div>
+            <div class="rh-score">
+              <div class="score-ring">
+                <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Результат 5 из 5">
+                  <circle class="track" cx="60" cy="60" r="52"/>
+                  <circle class="val" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="0" data-pct="100"/>
+                </svg>
+                <div class="ctr"><span class="big">5<small>/5</small></span><span class="lab2">верно</span></div>
+              </div>
+              <span class="verdict">Отлично</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- BADGE -->
+      <article class="card badge-card reveal" style="animation-delay:.06s">
+        <div class="badge-medal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          <span class="ribbon">Навык освоен</span>
+        </div>
+        <div class="badge-tx">
+          <div class="lab">Новый знак</div>
+          <h3>Презентатор показа</h3>
+          <p>Вы умеете давать короткую презентацию под задачу клиента и закрывать на показ через «качели цена—ценность». Знак появился в вашем профиле.</p>
+        </div>
+        <a href="#" class="btn-gold" style="flex-shrink:0">В профиль
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <!-- REWARDS -->
+      <div class="reward-grid">
+        <article class="card reward reveal" style="animation-delay:.1s">
+          <div class="rtop">
+            <span class="ic gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            <span class="nm">Опыт за урок</span>
+          </div>
+          <div class="big">+100<small> XP</small></div>
+          <div class="desc">Зачислено в ваш путь телемаркетолога</div>
+          <div class="xp-bar" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" aria-label="74 процента до следующего уровня"><i style="width:74%"></i></div>
+          <div class="xp-cap"><span>740 XP всего</span><span>до уровня 7 — 260 XP</span></div>
+        </article>
+
+        <article class="card reward reveal" style="animation-delay:.14s">
+          <div class="rtop">
+            <span class="ic teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>
+            <span class="nm">Серия</span>
+          </div>
+          <div class="big">7<small> дней</small></div>
+          <div class="desc">Седьмой день подряд без пропусков — так держать</div>
+          <div class="xp-bar"><i style="width:100%;background:linear-gradient(90deg,var(--teal),var(--teal-600))"></i></div>
+          <div class="xp-cap"><span>Лучшая серия в группе</span><span>+1 за сегодня</span></div>
+        </article>
+      </div>
+
+      <!-- RECAP -->
+      <article class="card recap-card reveal" style="animation-delay:.18s">
+        <div class="sec-head">
+          <h3>Все ответы засчитаны</h3>
+          <span class="meta">5 из 5 · без ошибок</span>
+        </div>
+        <div class="recap-list">
+          <div class="recap-row"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rt"><b>Мостик «это значит, что…»</b> — свойство переводим в выгоду для жизни клиента</span></div>
+          <div class="recap-row"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rt"><b>Порядок цифр</b> — сначала выгода, потом вилка, и сразу оговорка про расчёт на показе</span></div>
+          <div class="recap-row"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rt"><b>Продаём по телефону</b> — желание приехать и увидеть объект вживую</span></div>
+          <div class="recap-row"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rt"><b>4 «груза» показа</b> — чтобы «приезжайте» звучало как забота, а не отговорка</span></div>
+          <div class="recap-row"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rt"><b>Просят посчитать</b> — примерная вилка + оговорка + зовём на показ</span></div>
+        </div>
+      </article>
+
+      <!-- PASS FOOTER -->
+      <footer class="pass-foot reveal" style="animation-delay:.22s">
+        <div class="pf-l">
+          <span class="pf-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+            <span class="unlock-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          </span>
+          <div class="pf-tx">
+            <div class="lab">Следующая миссия открыта</div>
+            <div class="t">Шаг 6 · Работа с возражениями</div>
+            <div class="s">Фаза 3 · Звонок по этапам · ~30 мин</div>
+          </div>
+        </div>
+        <div class="pf-r">
+          <a href="#" class="link-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21 3 6"/></svg>
+            На карту курса
+          </a>
+          <a href="#" class="btn-gold">Следующий урок
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  (function(){
+    // State switcher (mockup helper)
+    var btns = document.querySelectorAll('.state-switch button');
+    var views = {fail: document.getElementById('view-fail'), pass: document.getElementById('view-pass')};
+    function animateRings(scope){
+      scope.querySelectorAll('.score-ring .val').forEach(function(el){
+        var r = 52, c = 2*Math.PI*r;
+        var pct = parseFloat(el.getAttribute('data-pct'))||0;
+        el.style.strokeDashoffset = c;
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){ el.style.strokeDashoffset = c*(1-pct/100); });
+        });
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var s = b.getAttribute('data-state');
+        btns.forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
+        Object.keys(views).forEach(function(k){ views[k].classList.toggle('show', k===s); });
+        animateRings(views[s]);
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    });
+    // initial ring animation for default (fail) view
+    document.addEventListener('DOMContentLoaded', function(){ animateRings(views.fail); });
+    if(document.readyState!=='loading'){ animateRings(views.fail); }
+  })();
+</script>
+</body>
+</html>
