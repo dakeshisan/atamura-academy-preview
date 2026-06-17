@@ -24,7 +24,7 @@
         
           <span class="chip user-chip">Гость</span>
           <form onsubmit="return false" data-preview method="post" action="/logout">
-            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKZTA.TabNevlNzqe8QG4R8pzimlMXAaA">
+            <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
             <button class="link-btn" type="submit">Выйти</button>
           </form>
         
@@ -58,7 +58,9 @@
         <span class="lc-tag media">Видео-урок</span>
         <h2>Вводное видео (1–2 мин)</h2>
         
-          <video controls preload="metadata" src="academy_m0_full_pilot.mp4" style="width:100%;border-radius:10px"></video><p class="pcap2">Полный вводный ролик урока «Старт» (пилот). В боевой сборке выдаётся только после входа.</p>
+          <div class="vidwrap"><video controls preload="metadata" src="/video/core_about"></video></div>
+          <p class="pcap2">Прежде чем учить тебя звонить — разберёмся, на кого ты работаешь и что на самом деле продаёшь. Это твоя главная опора в любом разговоре.</p>
+          <p class="pcap2">Видео выдаётся только после входа в Академию. Прямой ссылки на файл нет.</p>
         
       
     </article>
@@ -168,7 +170,7 @@
   
     <p>Сначала посмотрите материал и отметьте урок просмотренным. После этого откроется короткая проверка.</p>
     <form onsubmit="return false" data-preview method="post" action="/lesson/core_about/complete" class="inline-form">
-      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKZTA.TabNevlNzqe8QG4R8pzimlMXAaA">
+      <input type="hidden" name="csrf_token" value="eyJhY3Rpb24iOiJmb3JtIn0.ajKnCg.oj5LVIOOIiwcanw4dq1NemfcEDk">
       <button type="submit" class="secondary">Отметить урок просмотренным</button>
     </form>
   
