@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Академия ATAMŪRA · Путь телемаркетолога</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#284157;
+    --navy-700:#1d3142;
+    --navy-900:#15242f;
+    --teal:#007484;
+    --teal-600:#00606e;
+    --teal-tint:#e2eef0;
+    --gold:#CFB372;
+    --gold-deep:#b7995a;
+    --gold-soft:#f0e6cf;
+    --cream:#F7F5EE;
+    --cream-deep:#efece1;
+    --paper:#fffefb;
+    --ink:#23303a;
+    --muted:#5f6b75;
+    --muted-soft:#8b96a0;
+    --good:#1f7a4d;
+    --bad:#b5482e;
+    --line:#e6e2d6;
+    --line-strong:#d8d3c4;
+
+    --shadow-sm:0 1px 2px rgba(21,36,47,.04), 0 1px 3px rgba(21,36,47,.05);
+    --shadow-md:0 2px 4px rgba(21,36,47,.04), 0 8px 24px rgba(21,36,47,.07);
+    --shadow-lg:0 4px 8px rgba(21,36,47,.05), 0 20px 48px rgba(21,36,47,.12);
+    --shadow-navy:0 12px 36px rgba(40,65,87,.28);
+    --shadow-gold:0 10px 30px rgba(183,153,90,.30);
+
+    --r-sm:10px;
+    --r-md:16px;
+    --r-lg:22px;
+    --r-xl:28px;
+
+    --sidebar-w:84px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',sans-serif;
+    color:var(--ink);
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(1200px 600px at 8% -5%, rgba(0,116,132,.06), transparent 60%),
+      radial-gradient(900px 500px at 105% 0%, rgba(207,179,114,.10), transparent 55%),
+      radial-gradient(1000px 700px at 50% 120%, rgba(40,65,87,.05), transparent 60%);
+    background-attachment:fixed;
+    min-height:100vh;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:.005em;
+  }
+  /* subtle paper grain overlay */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;z-index:0;
+    opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+
+  h1,h2,h3,h4,.display{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.01em;color:var(--navy);line-height:1.08}
+
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  :focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+  .shell{position:relative;z-index:1;display:flex;min-height:100vh}
+
+  /* ============ SIDEBAR ============ */
+  aside.nav{
+    position:sticky;top:0;height:100vh;
+    width:var(--sidebar-w);flex-shrink:0;
+    background:linear-gradient(180deg,var(--navy) 0%, var(--navy-900) 100%);
+    display:flex;flex-direction:column;align-items:center;
+    padding:22px 0 18px;gap:6px;z-index:30;
+    box-shadow:var(--shadow-navy);
+  }
+  .brand-mark{
+    width:46px;height:46px;border-radius:13px;
+    background:linear-gradient(150deg,var(--gold) 0%, var(--gold-deep) 100%);
+    display:grid;place-items:center;
+    font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:var(--navy-900);
+    box-shadow:0 6px 16px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.45);
+    margin-bottom:20px;letter-spacing:0;
+  }
+  nav.rail{display:flex;flex-direction:column;gap:7px;width:100%;align-items:center;flex:1}
+  .rail a{
+    position:relative;width:60px;padding:11px 0 9px;border-radius:15px;
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+    color:rgba(231,238,242,.62);transition:all .28s var(--ease);
+  }
+  .rail a .ic{width:23px;height:23px;display:block;transition:transform .28s var(--ease)}
+  .rail a .lbl{font-size:9.5px;font-weight:500;letter-spacing:.02em;line-height:1;text-align:center;white-space:nowrap}
+  .rail a:hover{color:#fff;background:rgba(255,255,255,.07)}
+  .rail a:hover .ic{transform:translateY(-2px) scale(1.06)}
+  .rail a.active{color:var(--navy-900);background:linear-gradient(150deg,#fff,#f3efe2)}
+  .rail a.active::before{
+    content:"";position:absolute;left:-16px;top:50%;transform:translateY(-50%);
+    width:5px;height:30px;border-radius:0 5px 5px 0;background:var(--gold);
+    box-shadow:0 0 14px rgba(207,179,114,.7);
+  }
+  .rail-bottom{display:flex;flex-direction:column;gap:7px;width:100%;align-items:center;padding-top:8px;border-top:1px solid rgba(255,255,255,.09)}
+  .nav-avatar{
+    width:42px;height:42px;border-radius:50%;margin-top:4px;
+    background:linear-gradient(150deg,var(--teal),var(--teal-600));
+    display:grid;place-items:center;color:#fff;font-weight:600;font-size:15px;
+    border:2px solid rgba(255,255,255,.25);box-shadow:0 4px 10px rgba(0,0,0,.25);
+  }
+
+  /* ============ MAIN ============ */
+  main{flex:1;min-width:0;padding:30px 40px 56px;max-width:1480px;margin:0 auto;width:100%}
+
+  /* header */
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px;flex-wrap:wrap}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:9px}
+  .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--teal);display:inline-block;opacity:.6}
+  header.top h1{font-size:clamp(34px,4.2vw,52px);font-weight:600}
+  header.top .sub{margin-top:6px;color:var(--muted);font-size:15px;font-weight:400}
+  header.top .sub b{color:var(--ink);font-weight:600}
+
+  .top-right{display:flex;align-items:center;gap:14px}
+  .progress-chip{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);
+    padding:12px 18px;box-shadow:var(--shadow-sm);min-width:230px;
+  }
+  .progress-chip .row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px}
+  .progress-chip .row .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .progress-chip .row .v{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--navy)}
+  .progress-chip .row .v b{color:var(--teal)}
+  .bar{height:7px;border-radius:99px;background:var(--cream-deep);overflow:hidden;position:relative}
+  .bar > i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--teal),var(--teal-600));position:relative}
+  .bar > i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);background-size:200% 100%;animation:shimmer 2.6s linear infinite}
+  @keyframes shimmer{from{background-position:200% 0}to{background-position:-60% 0}}
+
+  .ghost-btn{
+    display:inline-flex;align-items:center;gap:8px;background:var(--paper);
+    border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 16px;
+    font-size:13.5px;font-weight:500;color:var(--ink);box-shadow:var(--shadow-sm);transition:all .25s var(--ease)
+  }
+  .ghost-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+  .ghost-btn svg{width:17px;height:17px}
+
+  /* grid */
+  .layout{display:grid;grid-template-columns:1.62fr 1fr;gap:26px;align-items:start}
+  .col-left{display:flex;flex-direction:column;gap:26px;min-width:0}
+  .col-right{display:flex;flex-direction:column;gap:22px;position:sticky;top:24px}
+
+  /* section heading */
+  .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+  .sec-head h2{font-size:27px}
+  .sec-head .meta{font-size:12.5px;color:var(--muted);font-weight:500}
+
+  /* ============ HERO CARDS ============ */
+  .hero-row{display:grid;grid-template-columns:1.32fr 1fr;gap:20px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+
+  /* lesson hero (navy, the protagonist) */
+  .hero-lesson{
+    background:
+      radial-gradient(120% 130% at 90% 0%, rgba(0,116,132,.55), transparent 55%),
+      linear-gradient(155deg,var(--navy) 0%, var(--navy-900) 100%);
+    color:#eef4f6;padding:26px 26px 24px;display:flex;flex-direction:column;
+    border:none;box-shadow:var(--shadow-navy);min-height:262px;
+  }
+  .hero-lesson::after{
+    content:"";position:absolute;right:-40px;bottom:-50px;width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(207,179,114,.20),transparent 70%);pointer-events:none
+  }
+  .hl-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:auto}
+  .pill{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+  .pill.live{background:rgba(207,179,114,.18);color:var(--gold);border:1px solid rgba(207,179,114,.4)}
+  .pill.live .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(207,179,114,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(207,179,114,.55)}70%{box-shadow:0 0 0 9px rgba(207,179,114,0)}100%{box-shadow:0 0 0 0 rgba(207,179,114,0)}}
+  .hl-phase{font-size:12px;color:rgba(238,244,246,.6);font-weight:500;letter-spacing:.04em}
+  .hl-step{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:18px 0 6px}
+  .hl-title{font-family:'Cormorant Garamond',serif;font-size:33px;font-weight:600;color:#fff;line-height:1.06;margin-bottom:13px;max-width:92%}
+  .hl-facts{display:flex;gap:18px;margin-bottom:20px;flex-wrap:wrap}
+  .hl-facts .f{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(238,244,246,.82)}
+  .hl-facts .f svg{width:15px;height:15px;opacity:.8}
+  .hl-foot{display:flex;align-items:center;gap:14px}
+  .btn-gold{
+    display:inline-flex;align-items:center;gap:9px;background:linear-gradient(150deg,var(--gold),var(--gold-deep));
+    color:var(--navy-900);font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:12px;
+    box-shadow:var(--shadow-gold);transition:all .26s var(--ease);letter-spacing:.01em;
+  }
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(183,153,90,.45)}
+  .btn-gold svg{width:17px;height:17px;transition:transform .26s var(--ease)}
+  .btn-gold:hover svg{transform:translateX(3px)}
+  .mini-prog{flex:1;min-width:90px}
+  .mini-prog .t{font-size:11px;color:rgba(238,244,246,.6);margin-bottom:6px;letter-spacing:.04em}
+  .mini-prog .bar{background:rgba(255,255,255,.13);height:6px}
+  .mini-prog .bar > i{background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+
+  /* admission gate card (cream/gold, locked) */
+  .hero-gate{padding:24px 24px 22px;display:flex;flex-direction:column;min-height:262px;background:linear-gradient(165deg,#fffdf6,#f7f1e2)}
+  .hero-gate::after{content:"";position:absolute;inset:0;border:1.5px dashed rgba(183,153,90,.45);border-radius:var(--r-lg);margin:9px;pointer-events:none}
+  .gate-seal{width:60px;height:60px;border-radius:50%;background:linear-gradient(150deg,var(--gold-soft),#fff);border:1.5px solid var(--gold);display:grid;place-items:center;margin-bottom:16px;box-shadow:0 6px 18px rgba(183,153,90,.22)}
+  .gate-seal svg{width:28px;height:28px;color:var(--gold-deep)}
+  .hero-gate .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:5px}
+  .hero-gate h3{font-size:27px;margin-bottom:9px}
+  .hero-gate p{font-size:13.5px;color:var(--muted);margin-bottom:auto;line-height:1.55;max-width:94%}
+  .gate-prog{margin-top:18px}
+  .gate-prog .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+  .gate-prog .row .a{font-size:12.5px;color:var(--ink);font-weight:500}
+  .gate-prog .row .b{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold-deep);font-weight:600}
+  .gate-prog .bar > i{background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+  .gate-prog .bar > i::after{display:none}
+  .locked-note{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-size:11.5px;color:var(--gold-deep);font-weight:500}
+  .locked-note svg{width:13px;height:13px}
+
+  /* ============ RINGS ============ */
+  .rings-card{padding:22px 24px}
+  .rings-card .sec-head{margin-bottom:18px}
+  .rings{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .ring{display:flex;align-items:center;gap:15px;padding:6px 4px}
+  .ring + .ring{border-left:1px solid var(--line)}
+  .ring svg{flex-shrink:0}
+  .ring .dial-track{fill:none;stroke:var(--cream-deep);stroke-width:7}
+  .ring .dial-val{fill:none;stroke-width:7;stroke-linecap:round;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset 1.1s var(--ease)}
+  .ring .pct{font-family:'Cormorant Garamond',serif;font-weight:600;fill:var(--navy)}
+  .ring .lab .num{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;color:var(--navy);line-height:1}
+  .ring .lab .num small{font-size:16px;color:var(--muted-soft)}
+  .ring .lab .t{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.25;font-weight:500}
+  .ring.teal .dial-val{stroke:var(--teal)}
+  .ring.navy .dial-val{stroke:var(--navy)}
+  .ring.gold .dial-val{stroke:var(--gold)}
+  .ring.gold .lab .num{color:var(--gold-deep)}
+  .ring.gold .pct{fill:var(--gold-deep)}
+
+  /* ============ COURSE MAP ============ */
+  .map-card{padding:24px 26px 28px}
+  .map-card .sec-head{margin-bottom:6px}
+  .map-legend{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 22px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .lg{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);font-weight:500}
+  .lg .b{width:14px;height:14px;border-radius:50%;display:grid;place-items:center}
+  .lg .b.done{background:var(--teal)}
+  .lg .b.cur{background:var(--gold);box-shadow:0 0 0 3px rgba(207,179,114,.25)}
+  .lg .b.lock{background:var(--cream-deep);border:1.5px solid var(--line-strong)}
+  .lg .b svg{width:9px;height:9px;color:#fff}
+
+  .phase{position:relative;padding-left:2px}
+  .phase-head{display:flex;align-items:center;gap:12px;margin:20px 0 10px}
+  .phase-head:first-child{margin-top:2px}
+  .phase-idx{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:var(--teal);width:30px;height:30px;border-radius:9px;background:var(--teal-tint);display:grid;place-items:center;flex-shrink:0}
+  .phase-head .nm{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy)}
+  .phase-head .ct{font-size:11.5px;color:var(--muted);background:var(--cream);border:1px solid var(--line);padding:3px 9px;border-radius:99px;font-weight:500}
+  .phase-head .line{flex:1;height:1px;background:var(--line)}
+
+  .steps{list-style:none;position:relative;margin-left:14px;padding-left:24px}
+  .steps::before{content:"";position:absolute;left:0;top:6px;bottom:8px;width:2px;background:var(--line);border-radius:2px}
+  .step{position:relative;display:flex;align-items:center;gap:13px;padding:9px 12px;border-radius:13px;margin-bottom:5px;transition:all .25s var(--ease)}
+  .step::before{
+    content:"";position:absolute;left:-24px;top:50%;transform:translateY(-50%);
+    width:15px;height:15px;border-radius:50%;background:var(--cream-deep);border:2.5px solid var(--line-strong);z-index:1;transition:all .25s var(--ease)
+  }
+  .step .node{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;font-weight:600;font-size:13px;font-family:'Cormorant Garamond',serif}
+  .step .txt{flex:1;min-width:0}
+  .step .txt .nm{font-size:14px;font-weight:500;color:var(--ink);line-height:1.25}
+  .step .txt .sb{font-size:11.5px;color:var(--muted-soft);margin-top:2px}
+  .step .tag{font-size:10.5px;font-weight:600;letter-spacing:.04em;padding:4px 9px;border-radius:99px;white-space:nowrap}
+
+  /* done */
+  .step.done::before{background:var(--teal);border-color:var(--teal)}
+  .step.done .node{background:var(--teal-tint);color:var(--teal-600)}
+  .step.done .tag{color:var(--teal-600);background:var(--teal-tint)}
+  .step.done:hover{background:var(--teal-tint)}
+  .step.done .node svg{width:17px;height:17px;color:var(--teal)}
+
+  /* current */
+  .step.current{background:linear-gradient(120deg,var(--gold-soft),#fffdf6);box-shadow:0 6px 20px rgba(183,153,90,.18);border:1px solid rgba(207,179,114,.4);margin:7px 0;padding:13px 14px}
+  .step.current::before{background:var(--gold);border-color:#fff;box-shadow:0 0 0 4px rgba(207,179,114,.35), 0 0 14px rgba(207,179,114,.6);width:17px;height:17px}
+  .step.current .node{background:linear-gradient(150deg,var(--gold),var(--gold-deep));color:var(--navy-900);box-shadow:var(--shadow-gold)}
+  .step.current .txt .nm{font-weight:600;color:var(--navy)}
+  .step.current .tag{color:var(--navy-900);background:var(--gold);font-weight:600}
+  .step.current .play{width:30px;height:30px;border-radius:50%;background:var(--navy);display:grid;place-items:center;flex-shrink:0;transition:transform .25s var(--ease)}
+  .step.current .play svg{width:13px;height:13px;color:var(--gold)}
+  .step.current:hover .play{transform:scale(1.12)}
+
+  /* locked */
+  .step.locked{opacity:.72}
+  .step.locked .node{background:var(--cream);color:var(--muted-soft);border:1px solid var(--line)}
+  .step.locked .txt .nm{color:var(--muted)}
+  .step.locked .tag{color:var(--muted-soft);background:var(--cream);border:1px solid var(--line)}
+  .step.locked .node svg{width:15px;height:15px;color:var(--muted-soft)}
+  .step.locked:hover{opacity:.95;background:var(--cream)}
+
+  /* ============ RIGHT COLUMN ============ */
+  /* sprint timeline */
+  .sprint{padding:22px 24px 24px;background:linear-gradient(170deg,var(--paper),#fcfaf3)}
+  .sprint .sec-head{margin-bottom:4px}
+  .sprint .sub{font-size:12.5px;color:var(--muted);margin-bottom:18px;font-weight:400}
+  .sprint .sub b{color:var(--teal);font-weight:600}
+  .day{display:flex;gap:14px;position:relative}
+  .day:not(:last-child){padding-bottom:18px}
+  .day-rail{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+  .day-dot{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;flex-shrink:0;z-index:1}
+  .day-dot.d1{background:linear-gradient(150deg,var(--teal),var(--teal-600));color:#fff;box-shadow:0 5px 14px rgba(0,116,132,.3)}
+  .day-dot.d2{background:var(--cream);color:var(--navy);border:1.5px solid var(--line-strong)}
+  .day-line{flex:1;width:2px;background:linear-gradient(var(--teal),var(--line));margin:4px 0;min-height:40px}
+  .day-body{flex:1;padding-top:2px}
+  .day-body .dh{display:flex;align-items:baseline;gap:9px;margin-bottom:9px}
+  .day-body .dh .dn{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--navy)}
+  .day-body .dh .dt{font-size:11px;color:var(--muted);background:var(--cream);padding:2px 8px;border-radius:99px;border:1px solid var(--line)}
+  .day-items{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .day-items li{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--ink)}
+  .day-items li .ck{width:16px;height:16px;border-radius:5px;display:grid;place-items:center;flex-shrink:0}
+  .day-items li.ok .ck{background:var(--teal)}
+  .day-items li.ok .ck svg{width:10px;height:10px;color:#fff}
+  .day-items li.ok{color:var(--muted)}
+  .day-items li.todo .ck{border:1.5px solid var(--line-strong);background:#fff}
+  .day-items li .meta{margin-left:auto;font-size:10.5px;color:var(--muted-soft)}
+
+  /* mentor */
+  .mentor{padding:0;overflow:hidden}
+  .mentor-top{background:linear-gradient(150deg,var(--navy),var(--navy-900));padding:22px 24px 20px;color:#eef4f6;position:relative}
+  .mentor-top::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(0,116,132,.4),transparent 70%)}
+  .mentor-top .lab{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+  .mentor-id{display:flex;align-items:center;gap:13px;position:relative}
+  .mentor-av{width:54px;height:54px;border-radius:15px;background:linear-gradient(150deg,var(--teal),var(--teal-600));display:grid;place-items:center;color:#fff;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;border:2px solid rgba(255,255,255,.2);box-shadow:0 6px 16px rgba(0,0,0,.3);flex-shrink:0}
+  .mentor-id .nm{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:#fff;line-height:1.1}
+  .mentor-id .rl{font-size:12px;color:rgba(238,244,246,.7);margin-top:2px}
+  .mentor-id .on{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;color:#7fd6b0;margin-top:5px;font-weight:500}
+  .mentor-id .on .d{width:6px;height:6px;border-radius:50%;background:#34c98a;box-shadow:0 0 6px #34c98a}
+  .mentor-body{padding:18px 24px 22px}
+  .mentor-cta{display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:14px;background:linear-gradient(120deg,var(--gold-soft),#fffdf6);border:1px solid rgba(207,179,114,.4);margin-bottom:16px}
+  .mentor-cta .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(150deg,var(--gold),var(--gold-deep));display:grid;place-items:center;flex-shrink:0;box-shadow:var(--shadow-gold)}
+  .mentor-cta .ic svg{width:18px;height:18px;color:var(--navy-900)}
+  .mentor-cta .tx .t{font-size:13px;font-weight:600;color:var(--navy)}
+  .mentor-cta .tx .s{font-size:11.5px;color:var(--gold-deep);margin-top:1px}
+
+  /* gamification — refined */
+  .stats-strip{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .stat{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:14px 15px;transition:all .25s var(--ease)}
+  .stat:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+  .stat .top{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+  .stat .top .ic{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;flex-shrink:0}
+  .stat .top .ic svg{width:15px;height:15px}
+  .stat .top .ic.gold{background:var(--gold-soft);color:var(--gold-deep)}
+  .stat .top .ic.teal{background:var(--teal-tint);color:var(--teal-600)}
+  .stat .top .nm{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.02em}
+  .stat .val{font-family:'Cormorant Garamond',serif;font-size:29px;font-weight:600;color:var(--navy);line-height:1}
+  .stat .val small{font-size:14px;color:var(--muted-soft);font-weight:400}
+  .stat .dots{display:flex;gap:4px;margin-top:9px}
+  .stat .dots i{width:100%;height:5px;border-radius:99px;background:var(--cream-deep)}
+  .stat .dots i.on{background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+
+  /* footer line */
+  .creed{margin-top:34px;padding:26px 30px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--navy) 0%, var(--navy-900) 100%);color:#eef4f6;display:flex;align-items:center;gap:22px;box-shadow:var(--shadow-navy);position:relative;overflow:hidden}
+  .creed::after{content:"";position:absolute;right:-30px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(207,179,114,.16),transparent 70%)}
+  .creed .mk{font-family:'Cormorant Garamond',serif;font-size:60px;color:var(--gold);line-height:.6;opacity:.6;flex-shrink:0}
+  .creed .tx q,.creed .tx{font-style:normal}
+  .creed .tx .q{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:500;color:#fff;line-height:1.2;font-style:italic}
+  .creed .tx .a{font-size:12.5px;color:rgba(238,244,246,.65);margin-top:7px;letter-spacing:.03em}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .7s var(--ease) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr}
+    .col-right{position:static;flex-direction:row;flex-wrap:wrap}
+    .col-right > *{flex:1 1 300px}
+  }
+  @media (max-width:920px){
+    .hero-row{grid-template-columns:1fr}
+    main{padding:24px 22px 48px}
+  }
+  @media (max-width:720px){
+    :root{--sidebar-w:62px}
+    aside.nav{padding:16px 0 14px}
+    .brand-mark{width:38px;height:38px;font-size:20px;margin-bottom:14px}
+    .rail a{width:50px}
+    .rail a .lbl{display:none}
+    .rail a .ic{width:22px;height:22px}
+    main{padding:22px 16px 44px}
+    header.top{margin-bottom:22px}
+    .progress-chip{min-width:0;width:100%}
+    .top-right{width:100%}
+    .rings{grid-template-columns:1fr}
+    .ring + .ring{border-left:none;border-top:1px solid var(--line);padding-top:14px}
+    .stats-strip{grid-template-columns:1fr 1fr}
+    .creed{flex-direction:column;text-align:center;gap:10px;padding:22px}
+    .creed .mk{display:none}
+    .hl-title{font-size:28px}
+    .col-right > *{flex:1 1 100%}
+  }
+  @media (max-width:420px){
+    header.top h1{font-size:31px}
+    .steps{margin-left:8px;padding-left:20px}
+    .step .tag{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="nav" aria-label="Главное меню">
+    <div class="brand-mark" title="ATAMŪRA" aria-hidden="true">Ā</div>
+    <nav class="rail" aria-label="Разделы академии">
+      <a href="#" class="active" aria-current="page">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span class="lbl">Обучение</span>
+      </a>
+      <a href="#course-map">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21 3 6"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+        <span class="lbl">Карта</span>
+      </a>
+      <a href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="lbl">Тренажёр</span>
+      </a>
+      <a href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="13" y2="11"/></svg>
+        <span class="lbl">Словарь</span>
+      </a>
+      <a href="#mentor">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="lbl">Наставник</span>
+      </a>
+      <a href="#">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span class="lbl">Поддержка</span>
+      </a>
+    </nav>
+    <div class="rail-bottom">
+      <div class="nav-avatar" title="Профиль" aria-label="Профиль: Алия">А</div>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main>
+
+    <!-- HEADER -->
+    <header class="top reveal" style="animation-delay:.04s">
+      <div>
+        <span class="eyebrow">Академия ATAMŪRA</span>
+        <h1>С возвращением, Алия</h1>
+        <p class="sub">Путь телемаркетолога · трек <b>ТМ</b> · спокойная уверенность приходит с практикой</p>
+      </div>
+      <div class="top-right">
+        <button class="ghost-btn" aria-label="Расписание спринта">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Спринт
+        </button>
+        <div class="progress-chip" role="group" aria-label="Общий прогресс пути">
+          <div class="row">
+            <span class="k">Общий прогресс</span>
+            <span class="v"><b>8</b> / 19 уроков</span>
+          </div>
+          <div class="bar" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" aria-label="42 процента пути пройдено"><i style="width:42%"></i></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+
+      <!-- ============ LEFT COLUMN ============ -->
+      <div class="col-left">
+
+        <!-- HERO ROW -->
+        <section class="hero-row" aria-label="Текущий шаг и допуск">
+
+          <!-- next lesson -->
+          <article class="card hero-lesson reveal" style="animation-delay:.1s">
+            <div class="hl-top">
+              <span class="pill live"><span class="dot"></span>Сейчас в работе</span>
+              <span class="hl-phase">Фаза 3 · Звонок по этапам</span>
+            </div>
+            <div>
+              <div class="hl-step">Следующий урок · Шаг 5</div>
+              <h2 class="hl-title">Презентация встречи</h2>
+              <div class="hl-facts">
+                <span class="f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>~35 мин</span>
+                <span class="f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>видео + конспект</span>
+                <span class="f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>тест в конце</span>
+              </div>
+            </div>
+            <div class="hl-foot">
+              <a href="#" class="btn-gold">Продолжить
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <div class="mini-prog">
+                <div class="t">Урок начат — 40%</div>
+                <div class="bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"><i style="width:40%"></i></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- admission gate -->
+          <article class="card hero-gate reveal" style="animation-delay:.16s" aria-label="Допуск к работе">
+            <div class="gate-seal" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <div class="lab">Финальный гейт</div>
+            <h3>Допуск на линию</h3>
+            <p>Откроется после всех 19 уроков и живого звонка наставнику. Это ваш пропуск к реальным клиентам.</p>
+            <div class="gate-prog">
+              <div class="row">
+                <span class="a">Готовность к допуску</span>
+                <span class="b">8 / 19</span>
+              </div>
+              <div class="bar" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" aria-label="42 процента до допуска"><i style="width:42%"></i></div>
+            </div>
+            <span class="locked-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Заблокировано · ещё 11 уроков
+            </span>
+          </article>
+        </section>
+
+        <!-- RINGS -->
+        <section class="card rings-card reveal" style="animation-delay:.22s" aria-label="Сводка прогресса">
+          <div class="sec-head">
+            <h2>Ваш прогресс</h2>
+            <span class="meta">обновлено сегодня</span>
+          </div>
+          <div class="rings">
+            <!-- lessons -->
+            <div class="ring teal">
+              <svg width="74" height="74" viewBox="0 0 74 74" role="img" aria-label="Уроков пройдено 8 из 19">
+                <circle class="dial-track" cx="37" cy="37" r="31"/>
+                <circle class="dial-val" cx="37" cy="37" r="31" stroke-dasharray="194.8" stroke-dashoffset="113" data-pct="42"/>
+                <text class="pct" x="37" y="42" text-anchor="middle" font-size="17">42%</text>
+              </svg>
+              <div class="lab">
+                <div class="num">8<small>/19</small></div>
+                <div class="t">Уроков<br>пройдено</div>
+              </div>
+            </div>
+            <!-- tests -->
+            <div class="ring navy">
+              <svg width="74" height="74" viewBox="0 0 74 74" role="img" aria-label="Тестов сдано 8, все на отлично">
+                <circle class="dial-track" cx="37" cy="37" r="31"/>
+                <circle class="dial-val" cx="37" cy="37" r="31" stroke-dasharray="194.8" stroke-dashoffset="0" data-pct="100"/>
+                <text class="pct" x="37" y="42" text-anchor="middle" font-size="17">100%</text>
+              </svg>
+              <div class="lab">
+                <div class="num">8</div>
+                <div class="t">Тестов<br>сдано</div>
+              </div>
+            </div>
+            <!-- grade -->
+            <div class="ring gold">
+              <svg width="74" height="74" viewBox="0 0 74 74" role="img" aria-label="Уровень выпуска 6 из 9">
+                <circle class="dial-track" cx="37" cy="37" r="31"/>
+                <circle class="dial-val" cx="37" cy="37" r="31" stroke-dasharray="194.8" stroke-dashoffset="65" data-pct="67"/>
+                <text class="pct" x="37" y="42" text-anchor="middle" font-size="16">6/9</text>
+              </svg>
+              <div class="lab">
+                <div class="num">6<small>/9</small></div>
+                <div class="t">Уровень<br>выпуска</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COURSE MAP -->
+        <section class="card map-card reveal" id="course-map" style="animation-delay:.28s" aria-label="Карта курса">
+          <div class="sec-head">
+            <h2>Карта пути</h2>
+            <span class="meta">6 фаз · 19 уроков · доступ открывается тестами</span>
+          </div>
+          <div class="map-legend" aria-hidden="true">
+            <span class="lg"><span class="b done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>пройден</span>
+            <span class="lg"><span class="b cur"></span>текущий</span>
+            <span class="lg"><span class="b lock"><svg viewBox="0 0 24 24" fill="none" stroke="var(--muted-soft)" stroke-width="2.4"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>заблокирован</span>
+          </div>
+
+          <!-- PHASE 1 — Ядро -->
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-idx">1</span>
+              <span class="nm">Ядро профессии</span>
+              <span class="ct">8 уроков</span>
+              <span class="line"></span>
+            </div>
+            <ul class="steps">
+              <li class="step done"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt"><span class="nm">Кто такой телемаркетолог ATAMŪRA</span><span class="sb">Шаг 1 · роль и наследие</span></span><span class="tag">5/5</span></li>
+              <li class="step done"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt"><span class="nm">Продукт: 9 ЖК на пальцах</span><span class="sb">Шаг 2 · что мы продаём</span></span><span class="tag">5/5</span></li>
+              <li class="step done"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt"><span class="nm">Голос, темп, пауза</span><span class="sb">Шаг 3 · техника речи</span></span><span class="tag">5/5</span></li>
+              <li class="step done"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="txt"><span class="nm">Цель звонка — встреча</span><span class="sb">Шаг 4 · единственный KPI</span></span><span class="tag">5/5</span></li>
+            </ul>
+          </div>
+
+          <!-- PHASE 3 — current -->
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-idx">3</span>
+              <span class="nm">Звонок по этапам</span>
+              <span class="ct">7 уроков</span>
+              <span class="line"></span>
+            </div>
+            <ul class="steps">
+              <li class="step current" aria-current="step">
+                <span class="node">5</span>
+                <span class="txt"><span class="nm">Презентация встречи</span><span class="sb">Шаг 5 · в работе — осталось ~21 мин</span></span>
+                <span class="tag">Сейчас</span>
+                <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
+              </li>
+              <li class="step locked"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="txt"><span class="nm">Работа с возражениями</span><span class="sb">Шаг 6 · откроется после теста Шага 5</span></span><span class="tag">🔒 Тест</span></li>
+              <li class="step locked"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="txt"><span class="nm">Фиксация и дожатие встречи</span><span class="sb">Шаг 7 · заблокировано</span></span><span class="tag">🔒 Тест</span></li>
+            </ul>
+          </div>
+
+          <!-- PHASE 4 -->
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-idx">4</span>
+              <span class="nm">Сборка навыка</span>
+              <span class="ct">2 урока</span>
+              <span class="line"></span>
+            </div>
+            <ul class="steps">
+              <li class="step locked"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="txt"><span class="nm">Сборка звонка целиком</span><span class="sb">Шаг 18 · все этапы вместе</span></span><span class="tag">🔒</span></li>
+              <li class="step locked"><span class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="txt"><span class="nm">Разбор своих записей</span><span class="sb">Шаг 19 · перед допуском</span></span><span class="tag">🔒</span></li>
+            </ul>
+          </div>
+
+          <!-- PHASE — Допуск -->
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-idx" style="background:var(--gold-soft);color:var(--gold-deep)">★</span>
+              <span class="nm" style="color:var(--gold-deep)">Допуск</span>
+              <span class="ct" style="border-color:var(--gold);color:var(--gold-deep);background:#fffdf6">финал</span>
+              <span class="line" style="background:linear-gradient(90deg,var(--gold),var(--line))"></span>
+            </div>
+            <ul class="steps">
+              <li class="step locked"><span class="node" style="background:var(--gold-soft);color:var(--gold-deep);border-color:var(--gold)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span class="txt"><span class="nm">Живой звонок наставнику</span><span class="sb">Аттестация · ваш пропуск на линию</span></span><span class="tag" style="background:var(--gold-soft);color:var(--gold-deep);border:1px solid var(--gold)">Гейт</span></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============ RIGHT COLUMN ============ -->
+      <aside class="col-right">
+
+        <!-- 2-DAY SPRINT -->
+        <section class="card sprint reveal" style="animation-delay:.12s" aria-label="Онбординг-спринт">
+          <div class="sec-head">
+            <h2 style="font-size:23px">Спринт онбординга</h2>
+          </div>
+          <p class="sub">2 дня погружения · <b>~9 часов</b> до карты пути</p>
+
+          <div class="day">
+            <div class="day-rail">
+              <div class="day-dot d1">1</div>
+              <div class="day-line"></div>
+            </div>
+            <div class="day-body">
+              <div class="dh"><span class="dn">День 1</span><span class="dt">~4,5 ч · пройден</span></div>
+              <ul class="day-items">
+                <li class="ok"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Знакомство и наследие <span class="meta">1 ч</span></li>
+                <li class="ok"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Продукт: 9 ЖК <span class="meta">2 ч</span></li>
+                <li class="ok"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Техника речи <span class="meta">1,5 ч</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="day">
+            <div class="day-rail">
+              <div class="day-dot d2">2</div>
+            </div>
+            <div class="day-body">
+              <div class="dh"><span class="dn">День 2</span><span class="dt">~4,5 ч · сегодня</span></div>
+              <ul class="day-items">
+                <li class="ok"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Цель звонка — встреча <span class="meta">1 ч</span></li>
+                <li class="todo"><span class="ck"></span>Звонок по этапам <span class="meta">2,5 ч</span></li>
+                <li class="todo"><span class="ck"></span>Первая ролёвка <span class="meta">1 ч</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- MENTOR -->
+        <section class="card mentor reveal" id="mentor" style="animation-delay:.18s" aria-label="Наставник">
+          <div class="mentor-top">
+            <div class="lab">Ваш наставник</div>
+            <div class="mentor-id">
+              <div class="mentor-av" aria-hidden="true">Д</div>
+              <div>
+                <div class="nm">Дамир Ныгметов</div>
+                <div class="rl">Старший менеджер · трек ТМ</div>
+                <span class="on"><span class="d"></span>на связи сегодня</span>
+              </div>
+            </div>
+          </div>
+          <div class="mentor-body">
+            <div class="mentor-cta">
+              <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <div class="tx">
+                <div class="t">Допуск: живой звонок наставнику</div>
+                <div class="s">назначается после Шага 19</div>
+              </div>
+            </div>
+
+            <!-- gamification, refined -->
+            <div class="stats-strip">
+              <div class="stat">
+                <div class="top"><span class="ic gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="nm">Опыт</span></div>
+                <div class="val">640<small> XP</small></div>
+                <div class="dots" aria-label="до следующего уровня 4 из 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+              </div>
+              <div class="stat">
+                <div class="top"><span class="ic teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span><span class="nm">Серия</span></div>
+                <div class="val">6<small> дней</small></div>
+                <div class="dots" aria-label="серия дней подряд"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <!-- CREED -->
+    <footer class="creed reveal" style="animation-delay:.34s">
+      <span class="mk" aria-hidden="true">“</span>
+      <div class="tx">
+        <div class="q">Цена ошибки высока — выходим на линию подготовленными.</div>
+        <div class="a">Принцип Академии ATAMŪRA · Мы создаём наследие</div>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // Animate progress rings into view (respects reduced-motion via CSS transition)
+  document.addEventListener('DOMContentLoaded', function () {
+    var circumference = 2 * Math.PI * 31; // r = 31
+    document.querySelectorAll('.ring .dial-val').forEach(function (el) {
+      var pct = parseFloat(el.getAttribute('data-pct')) || 0;
+      var target = circumference * (1 - pct / 100);
+      // start fully empty, then ease to target once observed
+      el.style.strokeDashoffset = circumference;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            requestAnimationFrame(function () { el.style.strokeDashoffset = target; });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(el);
+    });
+  });
+</script>
+</body>
+</html>
